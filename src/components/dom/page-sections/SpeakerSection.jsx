@@ -13,7 +13,7 @@ export const SpeakersSection = () => {
   const onScreen = useOnScreen(ref);
 
   return (
-    <Box as="section" id="speakers">
+    <Box as="section" id="mission">
       <Box
         ref={ref}
         className="__content"
@@ -22,7 +22,7 @@ export const SpeakersSection = () => {
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
         width="100%"
       >
-        <Text as="h2">Speakers</Text>
+        <Text as="h2">Mission</Text>
         <Box className="__content__body">
           <Text>
             Novas tentacles, have we got some fantastic guests lined up!!{" "}
@@ -32,7 +32,7 @@ export const SpeakersSection = () => {
           </Text>
           <Flex alignItems="flex-start" justifyContent="space-between">
             <Box flex="0 0 48%" w="48%">
-              <Text as="h3" className="gradient2">
+              <Text as="h3" className="gradient2 text">
                 Week One
               </Text>
               <Text>Want to take part in Metaverse Week?</Text>
@@ -42,7 +42,7 @@ export const SpeakersSection = () => {
               </Text>
             </Box>
             <Box flex="0 0 48%" w="48%">
-              <Text as="h3" className="gradient2">
+              <Text as="h3" className="gradient2 text">
                 Week Two
               </Text>
               <Text>Want to take part in DAO Week?</Text>

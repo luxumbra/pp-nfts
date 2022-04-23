@@ -20,7 +20,7 @@ export const ChatSection = () => {
   return (
     <Box
       as="section"
-      id="chat"
+      id="artists"
       justifyContent={{ base: "flex-end", lg: "inherit" }}
     >
       {open && (
@@ -49,8 +49,8 @@ export const ChatSection = () => {
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
       >
         <Box className="__content__body" textAlign="right" mt={6}>
-          <Text as="h2">MetaFest Chat</Text>
-          <Text as="p" className="gradient">
+          <Text as="h2">For Artists</Text>
+          <Text as="p" className="gradient text">
             Come and join the discusion.
           </Text>
           <Text as="p">

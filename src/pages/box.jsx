@@ -4,7 +4,7 @@ import {
 } from "@/components/dom/page-sections";
 import dynamic from 'next/dynamic'
 
-const Box = dynamic(() => import('@/components/canvas/Box'), {
+const Box = dynamic(() => import('@/components/canvas/VideoScreen'), {
   ssr: false,
 })
 const NomadVox = dynamic(() => import('@/components/canvas/Nomad'), {

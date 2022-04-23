@@ -35,7 +35,7 @@ export const HeadComponent = (props) => {
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-      <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;900&amp;family=Luckiest+Guy&amp;display=swap" rel="stylesheet" />
     </Head>
 
   );

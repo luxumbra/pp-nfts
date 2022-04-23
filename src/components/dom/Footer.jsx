@@ -43,9 +43,7 @@ export function SiteFooter() {
           left={{base: "calc(50% - 45px)", md: "calc(50% - 75px)"}}
         />
         <Flex h={"100px"} alignItems={"center"} justifyContent={"center"}>
-          <Box className="gradient2">
-            <Text textShadow="none" ><span role="img" aria-label="Octopus mascot">🐙</span> &copy; 2022 MetaFam <span role="img" aria-label="Octopus mascot">🐙</span> <Link href="https://metagame.wtf" isExternal>metagame.wtf</Link> <span role="img" aria-label="Octopus mascot">🐙</span></Text>
-          </Box>
+            <Text  className="gradient2 text"><span role="img" aria-label="Octopus mascot">🐙</span> &copy; 2022 MetaFam <span role="img" aria-label="Octopus mascot">🐙</span> <Link href="https://metagame.wtf" isExternal>metagame.wtf</Link> <span role="img" aria-label="Octopus mascot">🐙</span></Text>
         </Flex>
       </Box>
   );

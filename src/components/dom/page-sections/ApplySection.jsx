@@ -41,9 +41,10 @@ export const ApplySection = () => {
     false
   );
   const [openSponsorApplication, setOpenSponsorApplication] = useState(false);
-const [openFairApplication, setOpenFairApplication] = useState(false);
+  const [openFairApplication, setOpenFairApplication] = useState(false);
+
   return (
-    <Box as="section" id="apply" position="relative">
+    <Box as="section" id="roadmap" position="relative">
       <Box
         ref={ref}
         className="__content"
@@ -60,7 +61,7 @@ const [openFairApplication, setOpenFairApplication] = useState(false);
           <Text
             as="h2"
           >
-            Apply here
+            Roadmap
           </Text>
           {/* <span className="fest-dates">9 - 23rd JUNE</span> */}
           </Container>
@@ -81,7 +82,7 @@ const [openFairApplication, setOpenFairApplication] = useState(false);
                   textTransform={"uppercase"}
                   fontWeight={500}
                   fontSize={{ base: "2.2vmin", md: "0.7vmax" }}
-                  className="gradient"
+                  className="gradient text"
                   p={0}
                   alignSelf={"flex-start"}
                   rounded={"md"}
@@ -97,7 +98,7 @@ const [openFairApplication, setOpenFairApplication] = useState(false);
                 <Text as="h3" mt={1}>
                   <span>MetaFest2 needs YOU</span>
                   <span
-                    className="gradient"
+                    className="gradient text"
                     role="img"
                     aria-label="Pointing at the forms below"
                   >
@@ -382,7 +383,7 @@ export const Feature = ({ text, icon, iconBg, call }) => {
         rounded={"full"}
         // bg={iconBg}
       >
-        <BoxedNextImage src={icon} alt={text} boxSize={{base: '30px', lg: '75px'}} className="gradient" />
+        <BoxedNextImage src={icon} alt={text} boxSize={{base: '30px', lg: '75px'}} className="gradient text" />
       </Flex>
       <Text fontWeight={500} fontSize={{base: '4vmin', md: '1.2vmax'}} flex={1}>
         {text}

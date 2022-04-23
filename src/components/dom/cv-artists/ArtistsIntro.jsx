@@ -64,7 +64,7 @@ export const ArtistsIntro = () => {
         <Box className="__content__body" maxW={{base: '66vw', lg: 'unset'}}>
           <Text as="p" fontWeight={300} mt={-2}>
             powered by{" "}
-            <Text as="strong" className="gradient">
+            <Text as="strong" className="gradient text">
               MagicaVoxels, Blender, etc
             </Text>
           </Text>

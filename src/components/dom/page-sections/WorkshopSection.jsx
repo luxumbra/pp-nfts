@@ -12,7 +12,7 @@ export const WorkshopsSection = () => {
   const onScreen = useOnScreen(ref);
 
   return (
-    <Box as="section" id="workshops">
+    <Box as="section" id="about">
       <Box
         ref={ref}
         className="__content"
@@ -21,11 +21,11 @@ export const WorkshopsSection = () => {
         opacity={onScreen ? 1 : 0}
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
       >
-        <Text as="h2">Workshops</Text>
+        <Text as="h2">About Regenz</Text>
         <Box className="__content__body">
-          <p>Welcome to a week of pretty sweet workshops...</p>
+          <p>Excepteur consequat Lorem exercitation enim amet elit ...</p>
           <Box>
-            <Text as="h3" className="gradient2">
+            <Text as="h3" className="gradient2 text">
               When and What?
             </Text>
             <Text>
@@ -41,7 +41,7 @@ export const WorkshopsSection = () => {
               </em>
             </Text>
 
-            <Text as="h3" className="gradient2">
+            <Text as="h3" className="gradient2 text">
               Where?
             </Text>
             <Text>
@@ -55,7 +55,7 @@ export const WorkshopsSection = () => {
               </em>
             </Text>
 
-            <Text as="h3" className="gradient2">
+            <Text as="h3" className="gradient2 text">
               Open Quests / Help Needed!
             </Text>
             <Text>Get involved in the event!</Text>
@@ -63,9 +63,9 @@ export const WorkshopsSection = () => {
               Watch this space for active quests and ways to help out with
               MetaFest2.
               {/* We're curently looking for{" "}
-            <strong className="gradient">community members</strong> to record
+            <strong className="gradient text">community members</strong> to record
             the workshops to later upload them to youtube. We also need friendly
-            folks to help with <strong className="gradient">Innkeeping</strong>. */}
+            folks to help with <strong className="gradient text">Innkeeping</strong>. */}
             </Text>
             <Text>
               Check the <Link href="#apply">Applications page</Link> for the

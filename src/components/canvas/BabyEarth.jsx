@@ -21,8 +21,8 @@ export default function BabyEarthVox(props) {
     previousTime = elapsedTime;
 
     if (group.current && animate) {
-      group.current.position.x = -2 + Math.sin(elapsedTime * 0.8) * Math.PI * 0.03;
-      group.current.position.y = -1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
+      group.current.position.x = 2 + Math.sin(elapsedTime * 0.8) * Math.PI * 0.03;
+      group.current.position.y = 1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
       group.current.position.z = -0.25 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.3;
       group.current.rotation.y = elapsedTime * 0.3;
     }
@@ -36,6 +36,7 @@ export default function BabyEarthVox(props) {
         receiveShadow
         geometry={nodes["voxel-earth"].geometry}
         material={materials['palette.003']}
+        scale={[2, 2, 2]}
         rotation={[Math.PI * 0.5, 0, 0]}
         // onPointerOver={(e) => setHover(true)}
         // onPointerOut={(e) => setHover(false)}

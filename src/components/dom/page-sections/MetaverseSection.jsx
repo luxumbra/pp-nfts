@@ -24,7 +24,7 @@ export const MetaverseSection = () => {
   return (
     <Box
       as="section"
-      id="metafest-verse"
+      id="partners"
       justifyContent={{base: 'flex-end', lg: 'inherit'}}
     >
       {openHQ && (
@@ -73,37 +73,48 @@ export const MetaverseSection = () => {
         willChange={true}
         zIndex={openHQ || openFair ? 0 : 2001}
       >
-        <Box className="__content__body--no-firstof" textAlign="right" mt={6}>
-          <Text as="h2">MetaFest-a-Verse</Text>
-          <Text className="gradient">
-            Metafest 2 full dive: The MetaGame HQ
-          </Text>
-          <Text>
-            Join us at our HQ and explore the metaverse as we join together in games, scavenger hunts, learning, and other fun events.{" "}
-          </Text>
+        <Box className="__content__body--no-firstof" textAlign="right" mt={6} sx={{
+          '& > div': {
 
-          <Button colorScheme="ghost" onClick={() => setOpenHQ(!openHQ)}>
-            Open the booth
-          </Button>
+          }
+        }}>
+          <Box>
+            <Text as="h2">Our Partners</Text>
+            <Text className="gradient text">
+              Giveth
+            </Text>
+            <Text>
+              Join us at our HQ and explore the metaverse as we join together in games, scavenger hunts, learning, and other fun events.{" "}
+            </Text>
+
+            <Button colorScheme="ghost" onClick={() => setOpenHQ(!openHQ)}>
+              Open the booth
+            </Button>
+          </Box>
+          <Box>
           <Text>
-            <span className="gradient">
-              Web3 JobFair: Seeking honor and glory in the most meaningful
-              web3 orgs?
+            <span className="gradient text">
+              Nori
             </span>
           </Text>
           <Text>Come to the Job Fair and find your place!</Text>
           <Button colorScheme="ghost" onClick={() => setOpenFair(!openFair)}>
             Open the fair
           </Button>
+
+          </Box>
+
+          <Box>
           <Text>
-            <span className="gradient">
-              CryptoVoxel Wearables Gallery: Come browse our excellent wearables
+            <span className="gradient text">
+              Mattereum
             </span>
           </Text>
           <Text>All hand made with love by MetaGamers!</Text>
           <Button colorScheme="ghost" onClick={() => router.push('/cv')}>
             Open the Gallery
           </Button>
+          </Box>
         </Box>
       </Box>
       {openHQ && (
