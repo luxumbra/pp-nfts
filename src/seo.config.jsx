@@ -1,12 +1,12 @@
 export const settings = {
   meta: {
-    rootUrl: "https://metafest-r3f.vercel.app",
-    title: "MetaFest2. Powered by MetaGame",
-    description: "A virtual festival &amp; conference with the goal of helping you level up &amp; manifest a better future.",
+    rootUrl: "https://revesture.earth",
+    title: "ReVesture: Carbon Negative NFTs & Metaverse Wearables ",
+    description: "Every NFT on ReVesture offsets carbon & helps to fund regenerative projects.",
     social: {
       graphic:
-        "https://metafest-r3f.vercel.app/social.png",
-      twitter: "@MetaFam",
+        "https://revesture.earth/social.png",
+      twitter: "@bdgrdev",
     },
   },
 }

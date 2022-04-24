@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 import {
+  Container,
   Box,
   Button,
   Link,
   Text,
+  UnorderedList,
+  ListItem,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
@@ -24,197 +28,92 @@ export const PartnersSection = () => {
   return (
     <Box
       as="section"
-      id="partners"
-      justifyContent={{base: 'flex-end', lg: 'inherit'}}
+      id="legos"
+      justifyContent={{ base: 'flex-end', lg: 'inherit' }}
     >
-      {openHQ && (
-        <Button
-          position="absolute"
-          bottom={20}
-          right={6}
-          colorScheme="pink"
-          bg="#FF61E6"
-          boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
-          size="sm"
-          transition="all 0.3s 0.8s ease"
-          transform={`translateY(${openHQ ? 0 : "-70px"})`}
-          willChange={true}
-          onClick={() => setOpenHQ(!openHQ)}
-          zIndex={2002}
-        >
-          Close the booth
-        </Button>
-      )}
-      {openFair && (
-        <Button
-          position="absolute"
-          bottom={20}
-          right={6}
-          colorScheme="pink"
-          bg="#FF61E6"
-          boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
-          size="sm"
-          transition="all 0.3s 0.8s ease"
-          transform={`translateY(${openFair ? 0 : "-70px"})`}
-          willChange={true}
-          onClick={() => setOpenFair(!openFair)}
-          zIndex={2002}
-        >
-          Close Fair
-        </Button>
-      )}
       <Box
         ref={ref}
         className="__content"
-        maxW={{base: '100%', md: "2xl"}}
+        w={{ base: '100%' }}
         transform={`translate3d(${onScreen ? 0 : "-70px"}, 0, 0)`}
         opacity={onScreen ? 1 : 0}
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
-        willChange={true}
-        zIndex={openHQ || openFair ? 0 : 2001}
       >
-        <Box className="__content__body--no-firstof" textAlign="right" mt={6} sx={{
-          '& > div': {
-
-          }
-        }}>
-          <Box>
-            <Text as="h2">Our Partners</Text>
-            <Text className="gradient text">
-              Giveth
-            </Text>
-            <Text>
-              Join us at our HQ and explore the metaverse as we join together in games, scavenger hunts, learning, and other fun events.{" "}
-            </Text>
-
-            <Button colorScheme="ghost" onClick={() => setOpenHQ(!openHQ)}>
-              Open the booth
-            </Button>
-          </Box>
-          <Box>
-          <Text>
-            <span className="gradient text">
-              Nori
-            </span>
-          </Text>
-          <Text>Come to the Job Fair and find your place!</Text>
-          <Button colorScheme="ghost" onClick={() => setOpenFair(!openFair)}>
-            Open the fair
-          </Button>
-
-          </Box>
-
-          <Box>
-          <Text>
-            <span className="gradient text">
-              Mattereum
-            </span>
-          </Text>
-          <Text>All hand made with love by MetaGamers!</Text>
-          <Button colorScheme="ghost" onClick={() => router.push('/cv')}>
-            Open the Gallery
-          </Button>
-          </Box>
+        <Box className="__content__body" d={{ base: 'unset', md: "flex" }} flexFlow={{ base: 'column wrap', md: "row nowrap" }} alignItems="flex-start" justifyContent="space-between">
+          <Container
+            maxW={{ base: '100%', md: "50%" }}
+          >
+            <Text as="h2">The Legos</Text>
+            <Text>ReVesture sees all the worlds pulling together as One.  All the blocks stacking to a brighter future. </Text>
+            <Box mt={5}>
+              <SimpleGrid columns={3} spacing={8}>
+                <Box className="lego">
+                  <Text as="h4">Polygon  Blockchain</Text>
+                  <Text>We chose Polygon for their committment to <Link href="https://polygon.technology/sustainability" isExternal>going carbon-negative in 2022</Link>.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Third Web</Text>
+                  <Text>Third Web was an obvious choice for our Web3 connectivity. We are using their SDK and Smart Contracts.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Toucan Protocol</Text>
+                  <Text>Toucan’s infrastructure brings programmable carbon to Web3, unlocking its potential for a regenerative economy.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Giveth.io</Text>
+                  <Text>We love Giveth and what they stand for, so working on ways to integrate with them is a no-brainer.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Neos VR</Text>
+                  <Text>MetaGamers love NEOS and some of us have been building virtual worlds since waaay before &apos;Meta&apos; became a buzz word.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Cryptovoxels</Text>
+                  <Text>We love our voxels.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">MetaGame</Text>
+                  <Text>The ReVesture team all met in MetaGame and are members of the Regen Guild.</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Moloch Cloudship</Text>
+                  <Text>A DAO, a virtual world, virtual offices, co-working spaces and insane amounts of fun.</Text>
+                </Box>
+              </SimpleGrid>
+            </Box>
+          </Container>
+          <Container maxW={{ base: '100%', md: "50%" }} h="100%" p={0} mt={{ base: 5, md: 0 }} align="right">
+            <Box
+              maxW={{ base: '100%', md: 'xl' }}
+              h="100%"
+              p={{ base: 8, md: 8 }}
+              textAlign="left"
+              className=""
+              sx={{
+                bg: "rgba(38,52,20,0.3)",
+                backdropFilter: "blur(7px)",
+                borderRadius: "5px 30px 10px 0",
+                boxShadow: "0 0 30px #00000070",
+                borderLeft: "2px solid green.400"
+              }}
+            >
+              <Text as="h2" color="blue.300">
+                In the future
+              </Text>
+              <SimpleGrid columns={2} spacing={4}>
+                <Box className="lego">
+                  <Text as="h4">Gnosis (Formerly xDai)</Text>
+                  <Text>We&apos;re big fans of the Gnosis ecosystem and see a bridge in the future and cross-chain functionality for ReVesture</Text>
+                </Box>
+                <Box className="lego">
+                  <Text as="h4">Cosmos</Text>
+                  <Text>We&apos;re new to Cosmos but continue hearing great things, so expect cross-chain support with these guys soon<span role="img" aria-label="Soon, we promise">™️</span> (See <Link href="#roadmap">Roadmap</Link>).</Text>
+                </Box>
+              </SimpleGrid>
+            </Box>
+          </Container>
         </Box>
       </Box>
-      {openHQ && (
-        <Box
-          ref={ref}
-          position="absolute"
-          top="12.5vh"
-          left={0}
-          height="75vh"
-          minH="75vh"
-          width="100vw"
-          boxShadow="0 0 30px rgba(0,0,0,0.8)"
-          opacity={onScreen ? 1 : 0}
-          transition="opacity 1.2s 0.8s ease-in-out"
-          zIndex={2001}
-          sx={{
-            bg: "rgba(25,0,50,0.4)",
-            backdropFilter: "blur(7px)",
-          }}
-        >
-          <CryptovoxelsHQInstance />
-          <Box
-            display="flex"
-            position="absolute"
-            bottom={0}
-            right={0}
-            width="100%"
-            textAlign="center"
-          >
-            <Link
-              href="https://www.cryptovoxels.com/play?coords=S@379E,115S"
-              isExternal
-              fontWeight={700}
-              fontSize="0.7vmax"
-              // d="inline-block"
-              mx="auto"
-              p={3}
-              bg="linear-gradient(90.24deg, #640DFB99 0.3%, rgba(100, 13, 251, 0.9) 80.16%)"
-              borderRadius="5px 5px 0 0"
-              boxShadow="0 0 5px rgba(0,0,0,0.6)"
-              overflow="clip"
-            >
-              <span role="img" aria-label="Attention!">
-                📢
-              </span>{" "}
-              Need more CryptoVoxels? Open it up in a new tab.{" "}
-              <ExternalLinkIcon />
-            </Link>
-          </Box>
-        </Box>
-      )}
-      {openFair && (
-        <Box
-          ref={ref}
-          position="absolute"
-          top="12.5vh"
-          left={0}
-          height="75vh"
-          minH="75vh"
-          width="100vw"
-          boxShadow="0 0 30px rgba(0,0,0,0.8)"
-          opacity={onScreen ? 1 : 0}
-          transition="opacity 1.2s 0.8s ease-in-out"
-          zIndex={2001}
-          sx={{
-            bg: "rgba(25,0,50,0.4)",
-            backdropFilter: "blur(7px)",
-          }}
-        >
-          <CryptovoxelsJobFairInstance />
-          <Box
-            display="flex"
-            position="absolute"
-            bottom={0}
-            right={0}
-            width="100%"
-            textAlign="center"
-          >
-            <Link
-              href="https://www.cryptovoxels.com/play?coords=E@399E,93S,7.5F"
-              isExternal
-              fontWeight={700}
-              fontSize="0.7vmax"
-              // d="inline-block"
-              mx="auto"
-              p={3}
-              bg="linear-gradient(90.24deg, #640DFB99 0.3%, rgba(100, 13, 251, 0.9) 80.16%)"
-              borderRadius="5px 5px 0 0"
-              boxShadow="0 0 5px rgba(0,0,0,0.6)"
-              overflow="clip"
-            >
-              <span role="img" aria-label="Attention!">
-                📢
-              </span>{" "}
-              Need more CryptoVoxels? Open it up in a new tab.{" "}
-              <ExternalLinkIcon />
-            </Link>
-          </Box>
-        </Box>
-      )}
     </Box>
   );
 };

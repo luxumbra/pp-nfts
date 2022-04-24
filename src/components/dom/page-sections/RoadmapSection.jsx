@@ -13,6 +13,8 @@ import {
   Text,
   useBreakpointValue,
   Icon,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import {
   AirtableSpeakerInstance,
@@ -59,27 +61,29 @@ export const RoadmapSection = () => {
             </Text>
             {/* <span className="fest-dates">9 - 23rd JUNE</span> */}
           </Container>
-          <Container maxW={{ base: '100%', md: "2xl" }} h="100%" p={0} mt={{ base: 5, md: 0 }}>
+          <Container maxW={{ base: '100%', md: "4xl" }} h="100%" p={0} mt={{ base: 5, md: 0 }}>
             <Box
-              maxW={{ base: '100%', md: "2xl" }}
+              maxW={{ base: '100%', md: "100%" }}
               h="100%"
+              border="2px solid"
+              borderColor="green.500"
+              borderWidth="0 0 0 5px"
               p={{ base: 8, md: 4 }}
               sx={{
-                bg: "rgba(0,0,0,0.2)",
+                bg: "rgba(38,52,20,0.3)",
                 backdropFilter: "blur(7px)",
-                borderRadius: "5px 30px 10px 0",
+                borderRadius: "5px 30px 10px 5px",
                 boxShadow: "0 0 30px #00000070",
-                borderLeft: "2px solid green.400"
               }}
             >
               <Stack spacing={{ base: 2, md: 0 }} ml={-4} >
                 <Box d="inline-flex" alignItems="center" ml={4}>
-                  <Icon as={GiPollenDust} w={"30px"} h={"30px"}color="green.600" />
-                <Text as="h3" mt={1} className="gradient text noshadow" >
-                  <span>Phases of regen</span>
+                  <Icon as={GiPollenDust} w={"30px"} h={"30px"} color="green.200" />
+                  <Text as="h3" mt={1} color="green.300" >
+                    <span>Phases of ReVesture</span>
 
-                </Text>
-                  <Icon as={GiPineTree} w={"30px"} h={"30px"} color="green.700" />
+                  </Text>
+                  <Icon as={GiPineTree} w={"30px"} h={"30px"} color="green.500" />
 
                 </Box>
                 <Stack spacing={0} >
@@ -110,7 +114,7 @@ export const Feature = (props) => {
       px={0}
       py={5}
       borderRadius=" 0 10px 10px 0"
-      borderLeft="2px solid"
+      borderLeft="0px solid"
       borderColor={status === 1 ? 'green.500' : 'blue.500'}
     >
       <Box flex="0 0 25%" >
@@ -118,17 +122,27 @@ export const Feature = (props) => {
         <Text fontWeight={500} fontSize={{ base: '4vmin', md: '1.2vmax' }} flex={1}
           pl={3}
           sx={{
-            borderBottom: '1px solid',
+            borderBottom: '2px solid',
             borderColor: status === 1 ? 'green.400' : 'transparent',
             filter: status === 1 ? 'drop-shadow(0px 0px 1px rgba(0,0,0,0.6))' : 'drop-shadow(0px 0px 10px transparent)',
           }}
         >
           {title}
         </Text>
-        {status === 1 && <Text ml={3}  color="green.600" textShadow="none" filter="none">In progress</Text>}
+        {status === 1 && <Text ml={3} color="green.700" textShadow="none" filter="none">In progress</Text>}
       </Box>
       <Box p={3} border="1px solid" borderColor={status ? 'green.400' : 'transparent'} borderRadius="md" className={status === 1 ? "gradient" : "transparent"} boxShadow={status === 1 ? "0 0 3px rgba(0,0,0,0.6)" : 'unset'}>
-        <Text>{description}</Text>
+        <UnorderedList d="flex"
+          flexFlow="row wrap"
+          alignItems="flex-start"
+          justifyContent="space-between"
+        >
+          {description && description.map((item, index) => (
+            <ListItem key={index} w="48%" my={0}>
+              <Text as="span" >{item}</Text>
+            </ListItem>
+          ))}
+        </UnorderedList>
       </Box>
     </Box>
   );
@@ -146,31 +160,47 @@ export const timeline = [
   {
     quarter: "Q2 2022",
     title: "Phase One",
-    description: "Building out the website and launching our first NFTs & matching wearables by integrating wth Toucan etcetc. Raise awareness and promote the platform. Win PP Hackathon. 🍾",
+    description: [
+      "Build the website and NFT marketplace.",
+      "Launch first NFTs & matching Wearables",
+      "Integrate with Toucan NCTs",
+      "Wearables useable in Cryptovoxels & NeosVR",
+      "Inspire new Artists",
+      "Promote Carbon Negative Minting",
+      "Win the Planet NFT Hackathon",
+      "Find more Partners & Legos",
+      "NFT Auction & Wearable Raffle Giveaway at MetaFest2"
+    ],
     status: 1,
   },
   {
     quarter: "Q3 2022",
     title: "Phase Two",
-    description: "Building out the website and launching our first NFTs & matching wearables by integrating wth Toucan etcetc. Raise awareness and promote the platform.",
+    description: [
+      "Create in-world virtual Wearable Marketplace",
+      "Expand Cross-Chain (Ethereum, Gnosis, Cosmos)",
+      "Encourage and Build Bridges between Chains",
+      "Giveth Integration",
+    ],
     status: 0,
   },
   {
     quarter: "Q4 2022",
     title: "Phase Three",
-    description: "Building out the website and launching our first NFTs & matching wearables by integrating wth Toucan etcetc. Raise awareness and promote the platform.",
+    description: [
+      "Offer multi-chain options directly on DAO platforms such as DAOhaus",
+      "For organizations to offset their carbon footprint while receiving branded wearable NFTs for their members",
+      "Create erc-1152 NFTs that evolve over time corresponding to your total NCTs"
+    ],
     status: 0,
   },
   {
     quarter: "Q1 2023",
     title: "Phase Four",
-    description: "Building out the website and launching our first NFTs & matching wearables by integrating wth Toucan etcetc. Raise awareness and promote the platform.",
-    status: 0,
-  },
-  {
-    quarter: "Q2 2023",
-    title: "Phase Five",
-    description: "Building out the website and launching our first NFTs & matching wearables by integrating wth Toucan etcetc. Raise awareness and promote the platform.",
+    description: [
+      "Offer Workshops in VR spaces for wearable design",
+      "Sponsor Tech And Web3 Youth Education Events",
+    ],
     status: 0,
   },
 ];

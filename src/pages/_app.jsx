@@ -29,7 +29,7 @@ const theme = extendTheme({
         color: "white",
         fontFamily: '"Exo 2", sans-serif',
         fontSize: "16px",
-        fontWeight: 400,
+        fontWeight: 500,
         p: 0,
         m: '0 auto',
         minH: "100vh",
@@ -57,7 +57,7 @@ const theme = extendTheme({
       //   width: '100%',
       // },
       a: {
-        color: "green.500",
+        color: "green.700",
         textDecoration: "none",
         transition: "color 0.2s ease",
         _hover: {
@@ -65,7 +65,8 @@ const theme = extendTheme({
           textDecoration: "none",
         },
         "&.chakra-link": {
-          color: "green.500",
+          color: "green.400",
+          filter: 'none',
           _hover: {
             color: "green.600",
             textDecoration: "none",
@@ -123,7 +124,9 @@ const theme = extendTheme({
       },
       p: {
         fontSize: { base: "2.6vmin", md: ".8vmax" },
-        filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+        lineHeight: { base: "1.2", md: "1.6" },
+        mb: { base: 2, md: 3 },
+        // filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
       },
       nav: {
         a: {
@@ -148,6 +151,7 @@ const theme = extendTheme({
       ".__content__body": {
         "& > p:first-of-type": {
           fontSize: { base: "2.6vmin", md: "1vmax" },
+          lineHeight: { base: "1.2", md: "1.6" },
           fontWeight: 500,
         },
         "&--no-firstof": {
@@ -162,7 +166,10 @@ const theme = extendTheme({
       },
       // Gradients
       ".gradient": {
-        bgGradient: `linear(90deg, ${PPTheme.colors.green[600]} -29.22%, ${PPTheme.colors.green[700]} 107.53%)`,
+        bgGradient: `linear(90deg, ${PPTheme.colors.green[500]} -29.22%, ${PPTheme.colors.green[600]} 107.53%)`,
+        '&.metagame': {
+          bgGradient: `linear(90deg, ${PPTheme.colors.purple[300]} -29.22%, ${PPTheme.colors.purple[400]} 107.53%)`,
+        },
         '&.text': {
           position: 'relative',
           display: "inline-block",
@@ -177,12 +184,12 @@ const theme = extendTheme({
       },
       ".gradient2": {
         bgGradient:
-          `linear(90.24deg, ${PPTheme.colors.green[500]} 0.3%, ${PPTheme.colors.green[600]} 55.76%, ${PPTheme.colors.yellow[900]} 106.78%)`,
+          `linear(90.24deg, ${PPTheme.colors.green[500]} 0.3%, ${PPTheme.colors.green[600]} 55.76%, ${PPTheme.colors.blue[300]} 66.78%)`,
         '&.text': {
           display: "inline-block",
           backgroundPosition: "center",
           backgroundSize: "100%",
-          backgroundClip: "text",
+          bgClip: "text",
           textShadow: 'unset',
           filter: "drop-shadow(0 0 1px rgba(0,0,0,0.8))",
           '&.noshadow': {
@@ -190,9 +197,23 @@ const theme = extendTheme({
           }
         }
       },
+      ".gradient-vert": {
+        bgGradient:
+          `linear(0, ${PPTheme.colors.yellow[400]} , ${PPTheme.colors.green[700]} 30%)`,
+        '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          transition: "background 0.3s ease",
+          textShadow: 'unset',
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "none",
+          }
+        }
+      },
       ".gradient-cone": {
         background:
-          `conic-gradient(from 92.2deg at 60.45% 74.83%, ${PPTheme.colors.green[700]} 0deg, ${PPTheme.colors.green[400]} 88.12deg, ${PPTheme.colors.yellow[700]} 105deg, ${PPTheme.colors.yellow[400]} 165deg, ${PPTheme.colors.orange[700]} 251.25deg, ${PPTheme.colors.orange[400]} 286.87deg, ${PPTheme.colors.green[400]} 326.25deg, ${PPTheme.colors.green[700]} 360deg)`,
+          `conic-gradient(from 92.2deg at 20.45% 74.83%, ${PPTheme.colors.green[600]} 0deg, ${PPTheme.colors.green[400]} 20.12deg, ${PPTheme.colors.blue[200]} 105deg, ${PPTheme.colors.blue[600]} 165deg, ${PPTheme.colors.blue[600]} 251.25deg, ${PPTheme.colors.blue[500]} 286.87deg, ${PPTheme.colors.green[500]} 326.25deg, ${PPTheme.colors.green[600]} 360deg)`,
         '&.text': {
           display: "inline-block",
           backgroundPosition: "-254%",
@@ -213,7 +234,7 @@ const theme = extendTheme({
       ".fest-dates": {
         d: "inline-flex",
         width: "100%",
-        color: `${PPTheme.colors.blue[700]}`,
+        color: `${PPTheme.colors.green[900]}`,
         fontSize: { base: "2.2vmin", md: "0.7vmax" },
         fontWeight: 500,
         justifyContent: "left",

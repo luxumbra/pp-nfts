@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Link, Text } from "@chakra-ui/react";
+import { Container, Box, Button, Link, Text } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import ChatInstance from "@/components/dom/integrations/ChatInstance";
 import { useOnScreen } from "@/utils/hooks";
@@ -23,74 +23,60 @@ export const ArtistsSection = () => {
       id="artists"
       justifyContent={{ base: "flex-end", lg: "inherit" }}
     >
-      {open && (
-        <Button
-          position="absolute"
-          bottom={20}
-          right={6}
-          colorScheme="pink"
-          bg="#FF61E6"
-          boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
-          size="sm"
-          transition="all 0.3s 0.8s ease"
-          transform={`translateY(${open ? 0 : "-70px"})`}
-          willChange={true}
-          onClick={toggleChat}
-          zIndex={2002}
-        >
-          Close chat
-        </Button>
-      )}
-      <Box
+        <Box
         ref={ref}
         className="__content"
         transform={`translate3d(${onScreen ? 0 : "-70px"}, 0, 0)`}
         opacity={onScreen ? 1 : 0}
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
       >
-        <Box className="__content__body" textAlign="right" mt={6}>
-          <Text as="h2">For Artists</Text>
-          <Text as="p" className="gradient text">
-            Come and join the discusion.
-          </Text>
-          <Text as="p">
-            <Button colorScheme="ghost" onClick={toggleChat}>
-              Open chat
-            </Button>
-          </Text>
+<Box className="__content__body" d={{ base: 'unset', md: "flex" }} minW="100%" flexFlow={{ base: 'column wrap', md: "row nowrap" }} alignItems="flex-start" justifyContent="space-between">
+          <Container
+            maxW={{ base: '100%', md: "50%" }}
+
+          >
+            <Text as="h2">For Artists</Text>
+            <Text>
+              Are you a 3D modeling wizard?  A voxel renaissance sculptor?  A pixel throwing punk?
+            </Text>
+            <Box>
+              <Text as="h3" className="gradient text">
+                Calling all artists!
+              </Text>
+              <Text>Do you create avatars and wearables for virtual spaces? Maybe build skyscrapers on parcels in various MetaVerses? Well, that&apos;s pretty cool. Seriously!</Text>
+              <Text>And now, you can mint those MetaVerse NFTs with attached on-chain carbon offset tokens, while supporting regenerative projects for the better of the Earth. Well, that&apos;s pretty frikin cool also.</Text>
+
+
+            </Box>
+
+          </Container>
+          <Container maxW={{ base: '100%', md: "50%" }} h="100%" p={0} mt={{ base: 5, md: 0 }} align="right">
+          <Box
+              maxW={{ base: '100%', md: 'xl' }}
+              h="100%"
+              p={{ base: 8, md: 8 }}
+              textAlign="left"
+              className=""
+              sx={{
+                bg: "rgba(38,52,20,0.3)",
+                backdropFilter: "blur(7px)",
+                borderRadius: "5px 30px 10px 0",
+                boxShadow: "0 0 30px #00000070",
+                borderLeft: "2px solid green.400"
+              }}
+            >
+              <Text as="h2" color="blue.300">The Process</Text>
+              <Text>We&apos;re still building but will be updating these sort of things as we implement them.</Text>
+            </Box>
+          </Container>
+
         </Box>
       </Box>
-      {open && (
-        <Box
-          ref={ref}
-          position="absolute"
-          top="12.5vh"
-          left={0}
-          height="75vh"
-          minH="75vh"
-          width="100vw"
-          boxShadow="0 0 30px rgba(0,0,0,0.8)"
-          opacity={onScreen ? 1 : 0}
-          transition="opacity 1.2s 0.8s ease-in-out"
-          zIndex={2001}
-        >
-          <ChatInstance />
-          <Box position="absolute" top={2} right={8}>
-            <Link
-              href="https://discord.com/channels/629411177947987986/629411178837442601"
-              isExternal
-              fontWeight={500}
-              fontSize="0.7vmax"
-            >
-              <span role="img" aria-label="Attention!">
-                📢
-              </span>{" "}
-              Hey octo, need more Discord? Open it up in a new tab.{" "}
-              <ExternalLinkIcon />
-            </Link>
-          </Box>
-        </Box>
-      )}
     </Box>
   );
 };
+
+
+
+
+

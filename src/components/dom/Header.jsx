@@ -29,7 +29,7 @@ const Links = [
     href: "#marketplace",
   },
   {
-    name: "About Regenz",
+    name: "About ReVesture",
     href: "#about",
   },
   {
@@ -37,8 +37,8 @@ const Links = [
     href: "#mission",
   },
   {
-    name: "Partners",
-    href: "#partners",
+    name: "Legos",
+    href: "#legos",
   },
   {
     name: "For Artists",
@@ -173,7 +173,7 @@ export function SiteHeader() {
           </Box>
           <HStack spacing={8} alignItems={"center"}>
             <Flex alignItems={"center"}>
-            <Link href="/#home" flex={{base: 1}} fontWeight={900} fontSize={{base: '2vw'}}>
+            <Link href="/#home" flex={{base: 1}} fontWeight={900} fontSize={{base: '1.5vw'}}>
               {/* <BoxedNextImage
                 src={MF2Logo}
                 alt="MetaGame Logo"
@@ -188,7 +188,7 @@ export function SiteHeader() {
                   }
                 }}
               /> */}
-              <span className="gradient-cone text">Regenz</span>
+              <span className="gradient-cone text">ReVesture</span>
               </Link>
               </Flex>
             <HStack
@@ -210,8 +210,9 @@ export function SiteHeader() {
                 px={5}
                 py={2}
                 color="green.400"
-                bgGradient="linear(-90deg, yellow.500 -29.22%, yellow.900 107.53%)"
+                bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)"
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
+                fontWeight={700}
                 size="sm"
                 mr={0}
                 borderRadius="md"
@@ -234,7 +235,7 @@ export function SiteHeader() {
               >
               <IconButton
               icon={<BiJoystick />}
-              aria-label="Join Regenz"
+              aria-label="Join ReVesture"
               flex={0}
               fontSize={{base: '12vmin', lg: "2vmax"}}
               colorScheme="ghost"

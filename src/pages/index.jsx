@@ -33,6 +33,9 @@ import { CanvasLoader } from "@/components/canvas/Loader";
 const NomadVox = dynamic(() => import('@/components/canvas/Nomad'), {
   ssr: false,
 })
+const IndustrialVox = dynamic(() => import('@/components/canvas/Industrial'), {
+  ssr: false,
+})
 const JetsetterVox = dynamic(() => import('@/components/canvas/Jetsetter'), {
   ssr: false,
 })
@@ -51,6 +54,22 @@ const OctoEasterEgg = dynamic(() => import('@/components/canvas/EasterEgg'), {
 const Galaxy = dynamic(() => import('@/components/canvas/Galaxy'), {
   ssr: false,
 })
+
+// Musashi
+const Robe = dynamic(() => import('@/components/canvas/musashi/Robe'), {
+  ssr: false,
+})
+const Robe2 = dynamic(() => import('@/components/canvas/musashi/Robe2'), {
+  ssr: false,
+})
+const ILB = dynamic(() => import('@/components/canvas/musashi/Ilb'), {
+  ssr: false,
+})
+const MolochPet1 = dynamic(() => import('@/components/canvas/musashi/MolochPet1'), {
+  ssr: false,
+})
+
+
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
 import { lerp } from "three/src/math/MathUtils";
@@ -94,6 +113,7 @@ const R3F = () => {
   const { dom } = useStore();
   const nomad = useRef(null);
   const jetsetter = useRef(null);
+  const industrial = useRef(null);
   const octoEasterEgg = useRef(null);
   const camera = useRef();
   const cameraGroup = useRef();
@@ -106,6 +126,9 @@ const R3F = () => {
   const rayMousePos = useRef(new THREE.Vector2())
   const mouse = new THREE.Vector2();
   const rayMouse = new THREE.Vector2();
+
+  const molochPet1 = useRef(null);
+  const ilbRef = useRef(null);
 
   /**
    * Animate
@@ -173,7 +196,7 @@ const R3F = () => {
                   ease: "power2.inOut",
                   x: 1.5,
                   y: 0,
-                  z: 0
+                  z: -3
                 });
                 gsap.to(vid1.current.rotation, {
                   duration: 1.5,
@@ -182,7 +205,7 @@ const R3F = () => {
                 });
                 break;
 
-              default :
+              default:
                 gsap.to(vid1.current.position, {
                   duration: 1.5,
                   ease: "power2.inOut",
@@ -228,7 +251,7 @@ const R3F = () => {
                   y: -Math.PI * 0.1,
                 });
                 break;
-              default :
+              default:
                 gsap.to(vid2.current.position, {
                   duration: 1.5,
                   ease: "power2.inOut",
@@ -406,15 +429,41 @@ const R3F = () => {
       // group.current.rotation.y = elapsedTime * 0.03;
       nomad.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
     }
+    if (industrial.current) {
+      industrial.current.position.y = -1.5 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.05;
 
+      // group.current.rotation.y = elapsedTime * 0.03;
+      industrial.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
+    }
     if (jetsetter.current) {
       jetsetter.current.position.y = -1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.05;
 
       // group.current.rotation.y = elapsedTime * 0.03;
       jetsetter.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
     }
+    if (molochPet1.current) {
+      molochPet1.current.position.x = -1 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+      molochPet1.current.position.y = 1 + Math.cos(elapsedTime * 0.07) * Math.PI * 0.5;
+      // group.current.position.z = -0.25 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.3;
 
+      molochPet1.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
+      // molochPet1.current.rotation.y = elapsedTime * 0.03;
+    }
 
+    if (ilbRef.current) {
+      ilbRef.current.position.x = 1 + Math.sin(elapsedTime * 0.8) * Math.PI * 0.03;
+      ilbRef.current.position.y = 1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.3;
+      // group.current.position.z = -0.25 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.3;
+
+      // ilbRef.current.rotation.z = -0.5 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
+      ilbRef.current.rotation.y = -elapsedTime * 0.006;
+    }
+
+    if (octoEasterEgg.current) {
+      octoEasterEgg.current.position.x = -1 + Math.sin(elapsedTime * 0.9) * Math.PI * 0.05;
+      octoEasterEgg.current.position.y = -.5 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
+      octoEasterEgg.current.rotation.z = -elapsedTime * 0.06;
+    }
   });
 
   return (
@@ -426,7 +475,7 @@ const R3F = () => {
 
       <Suspense fallback={<CanvasLoader />}>
 
-        <fog attach="fog" args={["#88B748", 1, 15]} />
+        <fog attach="fog" args={["#88B748", 1, 30]} />
         <R3FSceneSection name="SectionOne" count={0}>
 
           <BabyEarthVox animate={true} position={[3, 2, -3]} />
@@ -434,29 +483,40 @@ const R3F = () => {
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionTwo" count={1}>
-          <group ref={vid1} position={[2, 0, 0]}>
+          <group ref={vid1} position={[2, -4, -3]}>
             <VideoScreen url={url} position={[-8, 0, 0]} />
-            </group>
+          </group>
+          <group ref={molochPet1}>
+            <MolochPet1 position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+          </group>
+          <group ref={ilbRef}>
+            <ILB position={[2, -2.5, -1]} rotation={[0, 0, 0]} />
+          </group>
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionThree" count={2}>
           <group ref={vid2} position={[0, 0, 0]}>
-            <VideoScreen2 url={url2} position={[0,0,0]} />
-            </group>
+            <VideoScreen2 url={url2} position={[0, 0, 0]} />
+          </group>
+
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionFour" count={3}>
+          <group ref={industrial} receiveShadow>
+            <IndustrialVox  position={[1.75, 0.5, 0.3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+          </group>
 
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionFive" count={4}>
-          <group ref={nomad} receiveShadow>
-            <NomadVox route='/cv' position={[1.75, 0.5, 0.3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+          <group ref={octoEasterEgg}>
+            <OctoEasterEgg />
           </group>
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionSix" count={5}>
           <BabyEarthVox position={[-1.5, -.8, -2]} animate={true} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionSeven" count={6}>

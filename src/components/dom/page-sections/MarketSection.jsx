@@ -65,7 +65,7 @@ export const MarketSection = () => {
             Marketplace
           </Text>
           <Text flex="1 0 100%" width="100%" alignSelf="flex-end" justifySelf="flex-start" fontWeight={500}>
-            Carbon <span className="gradient text">negative</span> NFTs supporting <span className="gradient text">regenerative</span> projects.
+            <span className="gradient text">Carbon negative</span> NFTs supporting <span className="gradient text">regenerative projects</span>.
           </Text>
         </Box>
 
@@ -204,9 +204,9 @@ const timeBlocks = [
   {
     week: 2,
     dates: 'Tuesday-Friday June 14th-17th',
-    title: 'MetaAlliance and Regen Days',
+    title: 'MetaAlliance and ReVesture Days',
     strapline: 'Speakers! Panels! Workshops!',
-    description: 'Learn about the guilds and embassies in our greater ecosystem!  MetaAlliance is a partnership of DAOs and projects, together building the new Web3 future.  Regen Days will cover new regenerative projects, ReFi, and more.  We will take a look into what on-the-ground expansion of Web3 looks like.',
+    description: 'Learn about the guilds and embassies in our greater ecosystem!  MetaAlliance is a partnership of DAOs and projects, together building the new Web3 future.  ReVesture Days will cover new ReVestureerative projects, ReFi, and more.  We will take a look into what on-the-ground expansion of Web3 looks like.',
     extra: `If you missed out last year, I can feel your <span className="gradient text">FOMO</span> from here!!`
   },
   {
