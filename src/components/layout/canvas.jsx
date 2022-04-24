@@ -71,8 +71,8 @@ const Effect = ({ on = false }) => {
   return (
     <EffectComposer>
           <Noise opacity={0.02} />
-          <Vignette eskil={false} offset={0.004} darkness={ 1.2} />
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+          <Vignette eskil={false} offset={0.004} darkness={ 1.2} />
       {/* {on && <Glitch />} */}
       </EffectComposer>
 

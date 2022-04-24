@@ -8,7 +8,7 @@ import {
 import { useOnScreen } from "@/utils/hooks";
 
 
-export const SpeakersSection = () => {
+export const MissionSection = () => {
   const ref = useRef(null);
   const onScreen = useOnScreen(ref);
 

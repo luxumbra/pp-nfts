@@ -1,7 +1,7 @@
-export { ApplySection } from "./ApplySection";
+export { RoadmapSection } from "./RoadmapSection";
 export { HomeSection } from './HomeSection';
-export { ChatSection } from "./ChatSection";
-export { MetaverseSection } from "./MetaverseSection";
-export { ScheduleSection } from "./ScheduleSection";
-export { SpeakersSection } from "./SpeakerSection";
-export { WorkshopsSection } from "./WorkshopSection";
+export { ArtistsSection } from "./ArtistsSection";
+export { PartnersSection } from "./PartnersSection";
+export { MarketSection } from "./MarketSection";
+export { MissionSection } from "./MissionSection";
+export { AboutSection } from "./AboutSection";

@@ -7,7 +7,7 @@ import {
 import { useOnScreen } from "@/utils/hooks";
 
 
-export const WorkshopsSection = () => {
+export const AboutSection = () => {
   const ref = useRef(null);
   const onScreen = useOnScreen(ref);
 

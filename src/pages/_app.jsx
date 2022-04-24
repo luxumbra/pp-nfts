@@ -170,11 +170,14 @@ const theme = extendTheme({
           textShadow: 'unset',
           zIndex: 20001,
           filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "unset",
+          }
         }
       },
       ".gradient2": {
         bgGradient:
-        `linear(90.24deg, ${PPTheme.colors.green[500]} 0.3%, ${PPTheme.colors.green[600]} 55.76%, ${PPTheme.colors.yellow[900]} 106.78%)`,
+          `linear(90.24deg, ${PPTheme.colors.green[500]} 0.3%, ${PPTheme.colors.green[600]} 55.76%, ${PPTheme.colors.yellow[900]} 106.78%)`,
         '&.text': {
           display: "inline-block",
           backgroundPosition: "center",
@@ -182,11 +185,14 @@ const theme = extendTheme({
           backgroundClip: "text",
           textShadow: 'unset',
           filter: "drop-shadow(0 0 1px rgba(0,0,0,0.8))",
+          '&.noshadow': {
+            filter: "none",
+          }
         }
       },
       ".gradient-cone": {
         background:
-        `conic-gradient(from 92.2deg at 60.45% 74.83%, ${PPTheme.colors.green[700]} 0deg, ${PPTheme.colors.green[400]} 88.12deg, ${PPTheme.colors.yellow[700]} 105deg, ${PPTheme.colors.yellow[400]} 165deg, ${PPTheme.colors.orange[700]} 251.25deg, ${PPTheme.colors.orange[400]} 286.87deg, ${PPTheme.colors.green[400]} 326.25deg, ${PPTheme.colors.green[700]} 360deg)`,
+          `conic-gradient(from 92.2deg at 60.45% 74.83%, ${PPTheme.colors.green[700]} 0deg, ${PPTheme.colors.green[400]} 88.12deg, ${PPTheme.colors.yellow[700]} 105deg, ${PPTheme.colors.yellow[400]} 165deg, ${PPTheme.colors.orange[700]} 251.25deg, ${PPTheme.colors.orange[400]} 286.87deg, ${PPTheme.colors.green[400]} 326.25deg, ${PPTheme.colors.green[700]} 360deg)`,
         '&.text': {
           display: "inline-block",
           backgroundPosition: "-254%",
@@ -195,10 +201,13 @@ const theme = extendTheme({
           transition: "background 0.3s ease",
           textShadow: 'unset',
           filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "none",
+          }
         }
       },
       '.loading-bar': {
-        bgGradient: `linear-gradient(90deg, ${PPTheme.colors.green[400]} -29.22%, ${PPTheme.colors.green[800]} 107.53%)`,
+        bg: PPTheme.colors.green[400],
       },
       ".highlight": {},
       ".fest-dates": {

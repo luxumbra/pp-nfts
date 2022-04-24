@@ -9,12 +9,12 @@ import useStore from '@/helpers/store'
 
 import {
   HomeSection,
-  ScheduleSection,
-  WorkshopsSection,
-  SpeakersSection,
-  MetaverseSection,
-  ChatSection,
-  ApplySection,
+  AboutSection,
+  MarketSection,
+  ArtistsSection,
+  PartnersSection,
+  MissionSection,
+  RoadmapSection,
 } from "@/components/dom/page-sections";
 
 import {
@@ -60,12 +60,12 @@ const DOM = () => {
   return (
     <>
       <HomeSection />
-      <ScheduleSection />
-      <WorkshopsSection />
-      <SpeakersSection />
-      <MetaverseSection />
-      <ChatSection />
-      <ApplySection />
+      <MarketSection />
+      <AboutSection />
+      <MissionSection />
+      <PartnersSection />
+      <ArtistsSection />
+      <RoadmapSection />
     </>
   )
 }
@@ -423,7 +423,9 @@ const R3F = () => {
         <PerspectiveCamera ref={camera} makeDefault aspect={sizes.width / sizes.height} position={[0, 0, 6]} rotateX={0} rotateY={0} far={1000} filmGauge={53} />
         {/* <Stats /> */}
       </group>
+
       <Suspense fallback={<CanvasLoader />}>
+
         <fog attach="fog" args={["#88B748", 1, 15]} />
         <R3FSceneSection name="SectionOne" count={0}>
 

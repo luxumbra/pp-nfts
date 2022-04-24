@@ -14,7 +14,7 @@ import { useDisabledMobileNotify, useOnScreen } from "@/utils/hooks";
 import ScheduleIcon from '@/static/assets/img/icons/events.svg';
 
 
-export const ScheduleSection = () => {
+export const MarketSection = () => {
   const ref = useRef(null);
   const onScreen = useOnScreen(ref);
   const [openCal, setOpenCal] = useState(false);

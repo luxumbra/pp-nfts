@@ -4,7 +4,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import ChatInstance from "@/components/dom/integrations/ChatInstance";
 import { useOnScreen } from "@/utils/hooks";
 
-export const ChatSection = () => {
+export const ArtistsSection = () => {
   const ref = useRef(null);
   const onScreen = useOnScreen(ref);
   const [open, setOpen] = useState(false);

@@ -14,7 +14,7 @@ import { useOnScreen } from "@/utils/hooks";
 import useStore from '@/helpers/store'
 
 
-export const MetaverseSection = () => {
+export const PartnersSection = () => {
   const router = useStore((s) => s.router);
   const ref = useRef(null);
   const onScreen = useOnScreen(ref);
