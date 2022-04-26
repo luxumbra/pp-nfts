@@ -84,7 +84,7 @@ export const PartnersSection = () => {
                 <Box className="lego">
                   <Text as="h4">Cryptovoxels</Text>
                   <Text>We 💓 voxels. Our team has been building things in CV since the start.</Text>
-                  <Link href="https://cryptovoxels.com/" isExternal><ExternalLinkIcon />Cryptovoxels</Link>
+                  <Link href="https://www.cryptovoxels.com/play?coords=SW@385E,108S" isExternal><ExternalLinkIcon />Cryptovoxels</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">MetaGame</Text>

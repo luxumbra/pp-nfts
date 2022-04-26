@@ -24,7 +24,7 @@ export default function Toucan(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-            <group scale={15} rotation={[Math.PI * 0.5, 0, 0]} >
+            <group scale={20} rotation={[Math.PI * 0.5, 0, 0]} >
         <mesh
           castShadow
           receiveShadow

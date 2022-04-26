@@ -10,7 +10,7 @@ export default function Giveth(props) {
   const group = useRef();
   const material = useRef();
   const [hovered, setHover] = useState(false)
-  const { nodes, materials } = useGLTF("/assets/models/b0gie/giveth.glb");
+  const { nodes, materials } = useGLTF("/assets/models/b0gie/thirdweb.glb");
   const { route } = props
   const clock = new THREE.Clock();
   let previousTime = 0;
@@ -22,13 +22,15 @@ export default function Giveth(props) {
     previousTime = elapsedTime;
   })
 
+
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Curve.geometry}
-        material={materials["SVGMat.001"]}
+        geometry={nodes.Curve010.geometry}
+        material={materials["Material.001"]}
         rotation={[Math.PI * 0.5, 0, 0]}
         scale={[16, 16, 16]}
         onClick={() => router.push(route)}
@@ -37,7 +39,7 @@ export default function Giveth(props) {
       />
 
       <pointLight
-        intensity={0.6}
+        intensity={1}
         distance={3}
         decay={2}
         color={'0xfff'}
@@ -47,4 +49,4 @@ export default function Giveth(props) {
   );
 }
 
-useGLTF.preload("/assets/models/b0gie/giveth.glb");
+useGLTF.preload("/assets/models/b0gie/thirdweb.glb");

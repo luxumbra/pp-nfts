@@ -22,7 +22,7 @@ export default function BabyEarthVox(props) {
 
     if (group.current && animate) {
       group.current.position.x = 2 + Math.sin(elapsedTime * 0.8) * Math.PI * 0.03;
-      group.current.position.y = 1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
+      group.current.position.y = - 1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
       group.current.position.z = -0.25 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.3;
       group.current.rotation.y = elapsedTime * 0.3;
     }

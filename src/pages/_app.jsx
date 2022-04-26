@@ -97,10 +97,10 @@ const theme = extendTheme({
         }
       },
       h2: {
-        color: "green.500",
+        color: "cyan.100",
         fontSize: "3vw",
         fontWeight: '900',
-        filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+        // filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
         "& + p": {
           fontSize: { base: "2.8vmin", md: "1.3vmax" },
           lineHeight: { base: "1.2", md: "inherit" },
@@ -109,6 +109,7 @@ const theme = extendTheme({
         },
       },
       h3: {
+        color: "cyan.100",
         fontSize: { base: "4vmin", md: "1.5vmax" },
         fontWeight: 700,
         mt: { base: 2, md: 5 },

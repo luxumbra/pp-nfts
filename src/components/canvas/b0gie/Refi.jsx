@@ -30,14 +30,14 @@ export default function Toucan(props) {
         geometry={nodes.Curve007.geometry}
         material={materials["refi txt"]}
         position={[-0.1, -0.03, 0.12]}
-        scale={3.19}
+        scale={6.38}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Torus.geometry}
         material={materials.refi}
-        scale={0.32}
+        scale={0.64}
       />
     </group>
   );

@@ -23,14 +23,14 @@ export const ArtistsSection = () => {
       id="artists"
       justifyContent={{ base: "flex-end", lg: "inherit" }}
     >
-        <Box
+      <Box
         ref={ref}
         className="__content"
         transform={`translate3d(${onScreen ? 0 : "-70px"}, 0, 0)`}
         opacity={onScreen ? 1 : 0}
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
       >
-<Box className="__content__body" d={{ base: 'unset', md: "flex" }} minW="100%" flexFlow={{ base: 'column wrap', md: "row nowrap" }} alignItems="flex-start" justifyContent="space-between">
+        <Box className="__content__body" d={{ base: 'unset', md: "flex" }} minW="100%" flexFlow={{ base: 'column wrap', md: "row nowrap" }} alignItems="flex-start" justifyContent="space-between">
           <Container
             maxW={{ base: '100%', md: "50%" }}
 
@@ -51,7 +51,7 @@ export const ArtistsSection = () => {
 
           </Container>
           <Container maxW={{ base: '100%', md: "50%" }} h="100%" p={0} mt={{ base: 5, md: 0 }} align="right">
-          <Box
+            <Box
               maxW={{ base: '100%', md: 'xl' }}
               h="100%"
               p={{ base: 8, md: 8 }}

@@ -79,6 +79,12 @@ const Toucan = dynamic(() => import('@/components/canvas/b0gie/Toucan'), {
 const Refi = dynamic(() => import('@/components/canvas/b0gie/Refi'), {
   ssr: false,
 })
+const ThirdWeb = dynamic(() => import('@/components/canvas/b0gie/ThirdWeb'), {
+  ssr: false,
+})
+const Polygon = dynamic(() => import('@/components/canvas/b0gie/Polygon'), {
+  ssr: false,
+})
 
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
@@ -127,7 +133,9 @@ const R3F = () => {
   const octoEasterEgg = useRef(null);
   const giveth = useRef(null);
   const toucan = useRef(null);
-      const refi = useRef(null);
+  const refi = useRef(null);
+  const thirdweb = useRef(null);
+  const polygon = useRef(null);
   const camera = useRef();
   const cameraGroup = useRef();
   const scrollY = useRef(0)
@@ -275,121 +283,6 @@ const R3F = () => {
                 break;
             }
           }
-          // if (cameraGroup.current) {
-          //   switch (currentSection) {
-          //     case 0:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Schedule
-          //     case 1:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Workshops
-          //     case 2:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Speakers
-          //     case 3:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Metaverse
-          //     case 4:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Chat
-          //     case 5:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-
-          //     // Chat
-          //     case 6:
-          //       gsap.to(cameraGroup.current.rotation, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         x: 0,
-          //         y: 0,
-          //         z: 0,
-          //       });
-          //       gsap.to(cameraGroup.current.position, {
-          //         duration: 1.5,
-          //         ease: "power2.inOut",
-          //         z: 0,
-          //       });
-          //       break;
-          //   }
-
-          // }
         }
       });
 
@@ -410,9 +303,7 @@ const R3F = () => {
           cameraGroup.current.rotation.y = -(event.clientX / sizes.current.width) * 0.5;
 
         }
-        // mouse.position.x = event.clientX / sizes.current.width
-        // mouse.position.y = event.clientY / sizes.current.height
-        // console.log('mouse pos', mouse);
+
       });
     }
   }, [dom])
@@ -432,9 +323,6 @@ const R3F = () => {
     cameraGroup.current.position.y +=
       (parallaxY - cameraGroup.current.position.y) * 5 * deltaTime;
 
-
-
-    // rimLight.current.position.y = (-scrollY.current / sizes.current.height) * objectsDistance;
 
     if (nomad.current) {
       nomad.current.position.y = -1.5 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.05;
@@ -478,23 +366,34 @@ const R3F = () => {
       octoEasterEgg.current.rotation.z = -elapsedTime * 0.06;
     }
 
-    // if (giveth.current) {
-    //   giveth.current.position.x = 2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
-    //   giveth.current.position.y = 1 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
-    //   giveth.current.rotation.z = -elapsedTime * 0.03;
-    // }
+    if (giveth.current) {
+      giveth.current.position.x = - Math.sin(elapsedTime * 0.45) * Math.PI * 0.06;
+      giveth.current.position.y = + Math.cos(elapsedTime * 0.09) * Math.PI * 0.52;
+    }
 
-    // if (toucan.current) {
-    //   toucan.current.position.x = 0 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
-    //   toucan.current.position.y = .5 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
-    //   toucan.current.rotation.z = -elapsedTime * 0.03;
-    // }
+    if (toucan.current) {
+      toucan.current.position.x = -2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
+      toucan.current.position.y =  + Math.cos(elapsedTime * 0.11) * Math.PI * 0.5;
+      // toucan.current.rotation.z = -elapsedTime * 0.03;
+    }
 
-    // if (refi.current) {
-    //   refi.current.position.x = 0 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
-    //   refi.current.position.y = .5 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
-    //   refi.current.rotation.z = -elapsedTime * 0.03;
-    // }
+  if (thirdweb.current) {
+      thirdweb.current.position.x = 3 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+      thirdweb.current.position.y = -2 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      // toucan.current.rotation.z = -elapsedTime * 0.03;
+  }
+
+      if (refi.current) {
+      refi.current.position.x = -3 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+      refi.current.position.y = 1 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      // toucan.current.rotation.z = -elapsedTime * 0.03;
+    }
+
+    if (polygon.current) {
+      polygon.current.position.x = -2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+      polygon.current.position.y = - 2 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      polygon.current.rotation.z = -elapsedTime * 0.1;
+    }
   });
 
   return (
@@ -518,10 +417,10 @@ const R3F = () => {
             <VideoScreen url={url} position={[-8, 0, 0]} />
           </group>
           <group ref={molochPet1}>
-            <MolochPet1 position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+            <MolochPet1 route="https://discord.gg/Fp6HNX7w9s" position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
           </group>
           <group ref={ilbRef}>
-            <ILB position={[2, -2.5, -1]} rotation={[0, 0, 0]} />
+            <ILB route="https://www.hiphopheads.io/" position={[2, -2.5, -1]} rotation={[0, 0, 0]} />
           </group>
         </R3FSceneSection>
 
@@ -534,25 +433,31 @@ const R3F = () => {
 
         <R3FSceneSection name="SectionFour" count={3}>
           <group ref={industrial} receiveShadow>
-            <IndustrialVox  position={[1.75, 0.5, 0.3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+            <IndustrialVox position={[1.75, 0.5, 0.3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
           </group>
 
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionFive" count={4}>
-          <group ref={giveth} position={[0,0,0]}>
-            <Giveth />
+          <group ref={giveth} position={[0, 0, 0]}>
+            <Giveth route="https://giveth.io/giveconomy" />
           </group>
-          <group ref={toucan} position={[-8, 0, -2]}>
-            <Toucan />
+          <group ref={toucan} position={[-3, 0, -3]}>
+            <Toucan route="https://gitcoin.co/grants/3059/toucan-protocol-carbon-as-a-money-lego" />
           </group>
-              <group ref={refi} position={[0, 1, 1]} rotation={[Math.PI * 0.5, 0 , 0]}>
-            <Refi />
+          <group ref={refi} position={[-2, 1, 1]} rotation={[Math.PI * 0.5, 0, 0]}>
+            <Refi route="https://gitcoin.co/grants/4024/refi-dao-season-one" />
+          </group>
+          <group ref={thirdweb} position={[3, -1, -1]} rotation={[0, 0, 0]}>
+            <ThirdWeb route="https://portal.thirdweb.com/guides/marketplace" />
+          </group>
+          <group ref={polygon} position={[-2, -2, -2]} rotation={[0, 0, 0]}>
+            <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" />
           </group>
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionSix" count={5}>
-          <BabyEarthVox position={[-1.5, -.8, -2]} animate={true} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+          <BabyEarthVox position={[-1.5, -1.3, -2]} animate={true} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
 
         </R3FSceneSection>
 
