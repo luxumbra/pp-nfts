@@ -110,7 +110,7 @@ export const RoadmapSection = () => {
 };
 
 export const Feature = (props) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const node = useRef(null);
   const nodeInfo = useRef(null);
   const item = useRef(null);
@@ -140,7 +140,7 @@ export const Feature = (props) => {
       if (node.current && nodeInfo.current && item.current, rmContainer) {
         gsap.to(nodeInfo.current, {
           duration: 0.3,
-          delay: 0.1,
+          delay: 0,
           ease: "elastic.inOut(1, 0.3)",
           x: -  rmContainer.offsetLeft,
           y: - rmContainer.offsetTop,
@@ -160,11 +160,11 @@ export const Feature = (props) => {
       if (node.current && nodeInfo.current && item.current) {
         gsap.to(nodeInfo.current, {
           duration: 0.3,
-          delay: 0.1,
+          delay: 0,
           ease: "elastic.inOut(1, 0.3)",
-          x: - (rmContainer.offsetLeft - 35),
+          x: - rmContainer.offsetLeft,
           y: rmContainer.offsetTop,
-          scale: 1,
+          scale: 0,
           opacity: 0,
           width: rmContainer.offsetWidth,
           zIndex: -1,
@@ -210,7 +210,14 @@ export const Feature = (props) => {
     <Box ref={item}>
       <VStack spacing={5}>
         <Button ref={node} id={`button-${id}`} colorScheme="ghost" w="100%" h="100%" onMouseOver={() => (setOpen(true))} onMouseLeave={() => setOpen(false)} >
-          <Icon aria-label={`Open ${title}`} as={GiPineTree} w={75} h={75} color={status === 1 ? 'green.600' : 'blue.500'} p={0} /></Button>
+          <Icon aria-label={`Open ${title}`} as={GiPineTree} w={75} h={75} color={status === 1 ? 'green.600' : 'blue.500'} p={0}
+                      sx={{
+              transition: 'color 0.3s 0.1s ease',
+              '&:hover': {
+              color: status === 1 ? 'green.300' : 'blue.300'
+            }
+          }}
+          /></Button>
         <Text color={status === 1 ? 'green.600' : 'blue.500'} width="100%" textAlign="center" fontSize={{base: '1.5vmin', md: '1vw'}} fontWeight={700}>{title}</Text>
 
       </VStack>
@@ -223,7 +230,7 @@ export const Feature = (props) => {
         id={`item-${id}`}
         d="flex"
         minW={`${item.current && item.current.parentElement.innerWidth}px`}
-        // minH={`${item.current && item.current.parentElement.innerHeight}px`}
+        minH="100%"
         flexDirection={responsiveSize === 'xs' ? 'column' : 'row'}
         alignItems="flex-start"
         px={5}
@@ -232,7 +239,7 @@ export const Feature = (props) => {
         border="0px solid"
         opacity={status === 1 ? 1 : 0}
         borderColor={status === 1 ? 'green.600' : 'blue.500'}
-        transformOrigin="bottom right"
+        transformOrigin="center"
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
         className={status === 1 ? "gradient" : "gradient-blue"}
         sx={{
@@ -241,9 +248,10 @@ export const Feature = (props) => {
           boxShadow: "0 0 30px #00000070",
         }}
       >
-        <Box w="100%" py={5}>
-          <Badge colorScheme={status === 1 ? "green" : "ghost"}  bg={status === 1 ? "green.700" : "blue.700"} variant="solid">{quarter}</Badge>
-          <Text fontWeight={500} fontSize={{ base: '4vmin', md: '0.8vmax' }} flex={1}
+        <Box w="25%" py={5}>
+          <Badge colorScheme={status === 1 ? "green" : "ghost"} bg={status === 1 ? "green.700" : "blue.700"} variant="solid"
+          >{quarter}</Badge>
+          <Text fontWeight={700} fontSize={{ base: '4vmin', md: '0.8vmax' }} flex={1}
             sx={{
               borderBottom: '2px solid',
               borderColor: status === 1 ? 'green.600' : 'transparent',
@@ -254,12 +262,13 @@ export const Feature = (props) => {
           </Text>
           {status === 1 && <Text color="green.800" textShadow="none" filter="none">In progress</Text>}
         </Box>
-        <Box p={3}>
+        <Box p={5} w="75%">
           <UnorderedList d="flex"
             flexFlow="row wrap"
             alignItems="flex-start"
             justifyContent="space-between"
             listStyleType="none"
+            ml={0}
           >
             {description && description.map((item, index) => (
               <ListItem key={index} d="inline-flex" alignItems="flex-start" w="48%" my={0} fontSize={{base: ''}}>

@@ -15,6 +15,7 @@ import { TermDefinition } from '@/components/dom/TermDefinition';
 import { GiFruitTree, GiPineTree, GiWillowTree } from 'react-icons/gi';
 import { CgTree, CgTrees } from 'react-icons/cg';
 import { BsDiscord, BsGithub, BsTwitter } from 'react-icons/bs';
+import { FaGithub, FaDiscord, FaTwitter } from 'react-icons/fa'
 import OctopusImg from "@/static/assets/img/octopus.png";
 // import MetaGameLogo from '../static/assets/img/logo.png'
 
@@ -55,16 +56,18 @@ export function SiteFooter() {
             <IconButton
               as="a"
               href="#"
+              color="green.400"
               aria-label="Github"
-
-              icon={<BsGithub fontSize="1.25rem" />}
+              colorScheme="ghost"
+              icon={<FaGithub fontSize="1.25rem" />}
             />
-            <IconButton as="a" href="#" aria-label="Discord" icon={<BsDiscord fontSize="1.25rem" />} />
+            <IconButton as="a" href="#" aria-label="Discord" colorScheme="ghost" icon={<FaDiscord fontSize="1.25rem" />} />
             <IconButton
               as="a"
               href="#"
               aria-label="Twitter"
-              icon={<BsTwitter fontSize="1.25rem" />}
+              colorScheme="ghost"
+              icon={<FaTwitter fontSize="1.25rem" />}
             />
           </ButtonGroup>
         </Stack>
