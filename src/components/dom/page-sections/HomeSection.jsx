@@ -75,7 +75,7 @@ export const HomeSection = () => {
             <span className="gradient text">Every NFT</span> on ReVesture <span className="gradient text">offsets carbon</span> &amp; helps to fund <span className="gradient text">regenerative projects</span>.
           </Text>
           <HStack mt={5}>
-            <Link href="#marketplace"><Button colorScheme="green" bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)" size={buttonSize}>Browse NFTs</Button></Link>
+            <Link href="#marketplace"><Button colorScheme="green" bgGradient="linear(-90deg, green.500 -29.22%, green.800 107.53%)" size={buttonSize}>Browse NFTs</Button></Link>
           </HStack>
         </Box>
       </Box>

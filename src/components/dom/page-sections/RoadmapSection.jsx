@@ -189,8 +189,10 @@ export const Feature = (props) => {
         // Update sizes
         sizes.current.width = window.innerWidth;
         sizes.current.height = window.innerHeight;
-        nodeInfo.current.width = rmContainer.offsetWidth;
-        nodeInfo.current.style.height = rmContainer.innerHeight;
+        if (nodeInfo.current) {
+          nodeInfo.current.style.width = rmContainer.offsetWidth;
+          nodeInfo.current.style.height = rmContainer.innerHeight;
+        }
 
       });
       window.addEventListener('mousemove', handleMouseMove);
@@ -211,13 +213,15 @@ export const Feature = (props) => {
       <VStack spacing={5}>
         <Button ref={node} id={`button-${id}`} colorScheme="ghost" w="100%" h="100%" onMouseOver={() => (setOpen(true))} onMouseLeave={() => setOpen(false)} >
           <Icon aria-label={`Open ${title}`} as={GiPineTree} w={75} h={75} color={status === 1 ? 'green.600' : 'blue.500'} p={0}
-                      sx={{
+            sx={{
               transition: 'color 0.3s 0.1s ease',
               '&:hover': {
               color: status === 1 ? 'green.300' : 'blue.300'
             }
           }}
-          /></Button>
+          />
+
+        </Button>
         <Text color={status === 1 ? 'green.600' : 'blue.500'} width="100%" textAlign="center" fontSize={{base: '1.5vmin', md: '1vw'}} fontWeight={700}>{title}</Text>
 
       </VStack>

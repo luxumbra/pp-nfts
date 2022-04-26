@@ -38,7 +38,7 @@ export const MissionSection = () => {
                 Simple bits
               </Text>
               <Text>
-                Simply to help everyone reduce &amp; remove global carbon emissions &amp; support regenerative projects around the globe. 🌎
+                To help everyone reduce &amp; remove global carbon emissions &amp; support regenerative projects around the globe. 🌎
               </Text>
 
               <Text as="h3">
@@ -69,15 +69,12 @@ export const MissionSection = () => {
               }}
             >
               <Text as="h2">Vision</Text>
-              <Text>We see a future of interwoven inner & outer worlds -vibrant and playful.</Text>
-              <Text>Full of smiling faces, virtual and real, with a sense of adventure and fun.</Text>
+              <Text>We see a future of interwoven inner &amp; outer worlds - vibrant and playful.</Text>
+              <Text>Full of smiling faces, virtual and real, with a sense of adventure &amp; fun.</Text>
               <Text className="">Celebrating our collective accomplishments of consciously restoring our Planet.</Text>
-              <Text as="h3" >
-                Some final words...
-              </Text>
               <Text>ReVesture aims to remind us all...</Text>
-              <Text>Have fun, but stay grounded.</Text>
-              <Text>Explore new <span className="gradient metagame text">VR worlds</span>, <span className="gradient metagame text">dream beyond your dreams</span> ... but don&apos;t forget, we sort of over-did-it on the one we are all standing on.</Text>
+              <Text className="gradient text">Have fun, stay grounded.</Text>
+              <Text>Explore new <span className="gradient text">VR worlds</span>, <span className="gradient text">dream beyond your dreams</span> ... but don&apos;t forget, we sort of over-did-it on the one we are all standing on.</Text>
             </Box>
           </Container>
 

@@ -34,9 +34,8 @@ export function SiteFooter() {
       px={4}
       w="100vw"
       h={{ base: 'auto' }}
-      // transform={{md: `translate3d(0, ${onScreen ? 0 : "70px"}, 0)`}}
       opacity={onScreen ? 1 : 0}
-      transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.3s ease-in"
+      transition="opacity 0.6s 0.3s ease-in"
       zIndex={2010}
       sx={{
         a: {
@@ -55,13 +54,13 @@ export function SiteFooter() {
           <ButtonGroup variant="ghost" >
             <IconButton
               as="a"
-              href="#"
+              href="https://github.com/luxumbra/pp-nfts"
               color="green.400"
               aria-label="Github"
               colorScheme="ghost"
               icon={<FaGithub fontSize="1.25rem" />}
             />
-            <IconButton as="a" href="#" aria-label="Discord" colorScheme="ghost" icon={<FaDiscord fontSize="1.25rem" />} />
+            {/* <IconButton as="a" href="#" aria-label="Discord" colorScheme="ghost" icon={<FaDiscord fontSize="1.25rem" />} /> */}
             <IconButton
               as="a"
               href="#"

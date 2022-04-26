@@ -187,9 +187,9 @@ const theme = extendTheme({
           }
         }
       },
-            ".gradient-blue": {
+      ".gradient-blue": {
         bgGradient: `linear(90deg, ${PPTheme.colors.blue[500]} -29.22%, ${PPTheme.colors.blue[600]} 107.53%)`,
-               '&.text': {
+        '&.text': {
           display: "inline-block",
           bgClip: "text",
           textShadow: 'unset',
@@ -265,6 +265,9 @@ const theme = extendTheme({
         },
         zIndex: 2001,
       },
+      '.coming-soon': {
+
+      }
     },
   },
 });
