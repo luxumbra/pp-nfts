@@ -11,16 +11,41 @@ export default function Toucan(props) {
   const material = useRef();
   const [hovered, setHover] = useState(false)
   const { nodes, materials } = useGLTF("/assets/models/b0gie/refi.glb");
-  const { route } = props
+  const { route, isExternal } = props
   const clock = new THREE.Clock();
   let previousTime = 0;
 
+  const handleClick = (url, isExternal) => {
+    if (isExternal) {
+      if (typeof window !== 'undefined') {
+        window.open(url, '_blank')
+      }
+      return
+    }
+    () => router.push(url)
+  }
 
   useFrame(() => {
     const elapsedTime = clock.getElapsedTime();
     const deltaTime = elapsedTime - previousTime;
     previousTime = elapsedTime;
   })
+
+  if (group.current) {
+    if (hovered) {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 1
+      })
+    } else {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 0
+      })
+    }
+  }
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -31,6 +56,9 @@ export default function Toucan(props) {
         material={materials["refi txt"]}
         position={[-0.1, -0.03, 0.12]}
         scale={6.38}
+        onClick={(e) => handleClick(route, isExternal)}
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}
       />
       <mesh
         castShadow

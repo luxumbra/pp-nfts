@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useToast } from "@chakra-ui/react";
-
+import useStore from '@/helpers/store'
 
 export const useOnScreen = (ref) => {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -19,6 +19,7 @@ export const useOnScreen = (ref) => {
 
   return isIntersecting;
 };
+
 
 // TODO: I know this is bad and needs re-factoring.
 export const useDisabledGeneralNotify = (type) => {

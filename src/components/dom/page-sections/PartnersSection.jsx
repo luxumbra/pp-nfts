@@ -50,56 +50,61 @@ export const PartnersSection = () => {
                 sx={{
                   'p + a': {
                     bg: 'green.700',
+                    fontSize: 'xs',
                     borderRadius: 'md',
                     color: 'white',
                     p: 1,
+                    '&:hover': {
+                      color: 'green.200',
+                      bg: 'green.900'
+                    }
                   }
                 }}
               >
                 <Box className="lego">
                   <Text as="h4">Polygon  Blockchain</Text>
                   <Text>We chose Polygon, not only for the performance &amp; low cost of transactions but largely for their commitment to <Link href="https://polygon.technology/sustainability" isExternal>going carbon-negative in 2022</Link> - Supercharging our platform. </Text>
-                  <Link href="https://polygon.technology/" isExternal><ExternalLinkIcon />Polygon</Link>
+                  <Link href="https://polygon.technology/" isExternal><ExternalLinkIcon mr={1} />Polygon</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Third Web</Text>
                   <Text>Third Web was an obvious choice for our Web3 connectivity. We are using their SDK &amp; Smart Contracts for our Marketplace &amp; for our governance &amp; utility tokens.</Text>
-                  <Link href="https://thirdweb.io/" isExternal><ExternalLinkIcon />Third Web</Link>
+                  <Link href="https://thirdweb.io/" isExternal><ExternalLinkIcon mr={1} />Third Web</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Toucan Protocol</Text>
                   <Text>Toucan&apos;s infrastructure brings programmable carbon to Web3, unlocking its potential for a regenerative economy. We see Toucan as an ideal lego for what we are building.</Text>
-                  <Link href="https://toucan.earth/" isExternal><ExternalLinkIcon />Toucan Protocol</Link>
+                  <Link href="https://toucan.earth/" isExternal><ExternalLinkIcon mr={1} />Toucan Protocol</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Giveth.io</Text>
                   <Text>We love Giveth &amp; what they stand for, so working on ways to integrate with them is very important to us.</Text>
-                  <Link href="https://giveth.io/" isExternal><ExternalLinkIcon />Giveth</Link>
+                  <Link href="https://giveth.io/" isExternal><ExternalLinkIcon mr={1} />Giveth</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Neos VR</Text>
                   <Text>MetaGamers love NEOS &amp; some of us have been building virtual worlds since <span className="gradient metagame text">waaay</span> before &apos;<Text as="span" color="#0564DB">Meta</Text>&apos; became a buzz word.</Text>
-                  <Link href="https://neos.com/" isExternal><ExternalLinkIcon />NEOS</Link>
+                  <Link href="https://neos.com/" isExternal><ExternalLinkIcon mr={1}/>NEOS</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Cryptovoxels</Text>
                   <Text>We 💓 voxels. Our team has been building things in CV since the start.</Text>
-                  <Link href="https://www.cryptovoxels.com/play?coords=SW@385E,108S" isExternal><ExternalLinkIcon />Cryptovoxels</Link>
+                  <Link href="https://www.cryptovoxels.com/play?coords=SW@385E,108S" isExternal><ExternalLinkIcon  mr={1}/>Cryptovoxels</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">MetaGame</Text>
                   <Text>The best community &amp; project - the ReVesture team all met in MetaGame &amp; are members of the Regen Guild in MetaGame.</Text>
-                  <Link href="https://giveth.io/project/metagame-0" isExternal><ExternalLinkIcon />MetaGame Giveth</Link>
+                  <Link href="https://giveth.io/project/metagame-0" isExternal><ExternalLinkIcon mr={1} />MetaGame on Giveth</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Moloch Cloudship</Text>
                   <Text>A DAO, a virtual world, virtual offices, co-working spaces &amp; insane amounts of fun.</Text>
-                  <Link href="https://giveth.io/donate/Moloch-Cloudship-0" isExternal><ExternalLinkIcon />Cloudship Giveth</Link>
+                  <Link href="https://giveth.io/donate/Moloch-Cloudship-0" isExternal><ExternalLinkIcon mr={1} />Cloudship on  Giveth</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">ReFiDAO 🌱</Text>
                   <Text>We&apos;ve loved being part of the Planet Positive NFT hackathon &amp; I know we&apos;ll be grateful to you guys for a long time to come. Thank you. 🙏</Text>
-                  <Link href="https://refidao.com/" isExternal><ExternalLinkIcon />RefiDAO</Link>
+                  <Link href="https://refidao.com/" isExternal><ExternalLinkIcon mr={1} />RefiDAO</Link>
                 </Box>
               </SimpleGrid>
             </Box>

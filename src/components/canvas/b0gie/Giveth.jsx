@@ -11,16 +11,42 @@ export default function Giveth(props) {
   const material = useRef();
   const [hovered, setHover] = useState(false)
   const { nodes, materials } = useGLTF("/assets/models/b0gie/giveth.glb");
-  const { route } = props
+  const { route, isExternal } = props
   const clock = new THREE.Clock();
   let previousTime = 0;
 
+
+  const handleClick = (url, isExternal) => {
+    if (isExternal) {
+      if (typeof window !== 'undefined') {
+        window.open(url, '_blank')
+      }
+      return
+    }
+    () => router.push(url)
+  }
 
   useFrame(() => {
     const elapsedTime = clock.getElapsedTime();
     const deltaTime = elapsedTime - previousTime;
     previousTime = elapsedTime;
   })
+
+  if (group.current) {
+    if (hovered) {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 1
+      })
+    } else {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 0
+      })
+    }
+  }
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -31,9 +57,9 @@ export default function Giveth(props) {
         material={materials["SVGMat.001"]}
         rotation={[Math.PI * 0.5, 0, 0]}
         scale={[16, 16, 16]}
-        onClick={() => router.push(route)}
-        // onPointerOver={(e) => setHover(true)}
-        // onPointerOut={(e) => setHover(false)}
+        onClick={() => handleClick(route, isExternal)}
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}
       />
 
       <pointLight
