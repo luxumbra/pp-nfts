@@ -11,10 +11,19 @@ export default function Polygon(props) {
   const material = useRef();
   const [hovered, setHover] = useState(false)
   const { nodes, materials } = useGLTF("/assets/models/b0gie/matic.glb");
-  const { route } = props
+  const { route, isExternal } = props
   const clock = new THREE.Clock();
   let previousTime = 0;
 
+  const handleClick = (url, isExternal) => {
+    if (isExternal) {
+      if (typeof window !== 'undefined') {
+        window.open(url, '_blank')
+      }
+      return
+    }
+    () => router.push(url)
+  }
 
   useFrame(() => {
     const elapsedTime = clock.getElapsedTime();
@@ -22,19 +31,21 @@ export default function Polygon(props) {
     previousTime = elapsedTime;
   })
 
-  // if (hovered) {
-  //   gsap.to(group.current.position, {
-  //     x: 2,
-  //     y: 0,
-  //     z: 0
-  //   })
-  // } else {
-  //       gsap.to(group.current.position, {
-  //     x: 0,
-  //     y: 0,
-  //     z: 0
-  //   })
-  // }
+  if (group.current) {
+    if (hovered) {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 1
+      })
+    } else {
+      gsap.to(group.current.position, {
+        x: 0,
+        y: 0,
+        z: 0
+      })
+    }
+  }
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -45,7 +56,9 @@ export default function Polygon(props) {
         material={materials["SVGMat.407"]}
         rotation={[Math.PI * 0.5, 0, 0]}
         scale={[16, 16, 16]}
-        onClick={() => router.push(route)}
+        onClick={() => handleClick(route, isExternal)}
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}
       />
 
       <pointLight

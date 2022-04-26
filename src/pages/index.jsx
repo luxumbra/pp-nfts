@@ -93,6 +93,7 @@ const LegoBlock = dynamic(() => import('@/components/canvas/b0gie/LegoBlock'), {
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
 import { lerp } from "three/src/math/MathUtils";
+import { EasterEgg } from "@/components/dom/EasterEgg";
 
 // dom components goes here
 const DOM = () => {
@@ -196,7 +197,7 @@ const R3F = () => {
           lego.current.rotation.x = scrollY.current * 0.0004;
           lego.current.rotation.y = scrollY.current * 0.0008;
           lego.current.rotation.z = scrollY.current * 0.0003;
-          lego.current.position.y = Math.cos(scrollY.current /2) * 0.0005;
+          lego.current.position.y = -scrollY.current * 0.0007;
         }
         const newSection = Math.round(scrollY.current / sizes.current.height);
         if (newSection !== currentSection) {
@@ -405,11 +406,10 @@ const R3F = () => {
       polygon.current.rotation.z = -elapsedTime * 0.1;
     }
 
-    //     if (lego.current) {
-    //   lego.current.position.x = 5 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
-    //   lego.current.position.y = 4 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
-    //   lego.current.rotation.z = -elapsedTime * 0.1;
-    // }
+        if (lego.current) {
+      lego.current.position.x = 1 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+      lego.current.position.y = 0.5 + Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+    }
   });
 
   return (
@@ -421,7 +421,7 @@ const R3F = () => {
 
       <Suspense fallback={<CanvasLoader />}>
 
-        <fog attach="fog" args={["#7C56FF", 1, 30]} />
+        <fog attach="fog" args={["#88B748", 1, 30]} />
         <R3FSceneSection name="SectionOne" count={0}>
 
           <BabyEarthVox animate={true} position={[3, 2, -3]} />
@@ -433,10 +433,10 @@ const R3F = () => {
             <VideoScreen url={url} position={[-8, 0, 0]} />
           </group>
           <group ref={molochPet1}>
-            <MolochPet1 route="https://discord.gg/Fp6HNX7w9s" position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+            <MolochPet1 route="https://discord.gg/Fp6HNX7w9s" isExternal position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
           </group>
           <group ref={ilbRef}>
-            <ILB route="https://www.hiphopheads.io/" position={[2, -2.5, -1]} rotation={[0, 0, 0]} />
+            <ILB route="https://www.hiphopheads.io/" isExternal position={[2, -2.5, -1]} rotation={[0, 0, 0]} />
           </group>
         </R3FSceneSection>
 
@@ -456,27 +456,30 @@ const R3F = () => {
 
         <R3FSceneSection name="SectionFive" count={4}>
           <group ref={giveth} position={[0, 0, 0]}>
-            <Giveth route="https://giveth.io/giveconomy" />
+            <Giveth route="https://giveth.io/giveconomy" isExternal />
           </group>
           <group ref={toucan} position={[-3, 0, -3]}>
-            <Toucan route="https://gitcoin.co/grants/3059/toucan-protocol-carbon-as-a-money-lego" />
+            <Toucan route="https://gitcoin.co/grants/3059/toucan-protocol-carbon-as-a-money-lego" isExternal />
           </group>
           <group ref={refi} position={[-2, 1, 1]} rotation={[Math.PI * 0.5, 0, 0]}>
-            <Refi route="https://gitcoin.co/grants/4024/refi-dao-season-one" />
+            <Refi route="https://gitcoin.co/grants/4024/refi-dao-season-one" isExternal />
           </group>
           <group ref={thirdweb} position={[3, -1, -1]} rotation={[0, 0, 0]}>
-            <ThirdWeb route="https://portal.thirdweb.com/guides/marketplace" />
+            <ThirdWeb route="https://portal.thirdweb.com/guides/marketplace" isExternal />
           </group>
           <group ref={polygon} position={[-2, -2, -2]} rotation={[0, 0, 0]}>
-            <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" />
+            <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" isExternal />
           </group>
             <group ref={lego} position={[-2, 4, -8]} rotation={[0, 0, 0]}>
-            <LegoBlock  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" />
+            <LegoBlock  route="https://www.bricklink.com/r3/studio/download.page#xlink" isExternal />
+          </group>
+          <group ref={octoEasterEgg} position={[1, -2, 0]} rotation={[0, 0, 0]}>
+            <OctoEasterEgg  route="https://metagame.wtf" isExternal />
           </group>
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionSix" count={5}>
-          <BabyEarthVox position={[-1.5, -1.3, -2]} animate={true} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
+          <BabyEarthVox position={[-1.5, -2.5, -2]} animate={true} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
 
         </R3FSceneSection>
 

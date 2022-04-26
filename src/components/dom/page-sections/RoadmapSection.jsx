@@ -57,22 +57,30 @@ export const RoadmapSection = () => {
         <Box className="__content__body" d={{ base: 'unset', md: "flex" }} flexFlow={{ base: 'column nowrap', '2xl': "row nowrap" }} alignItems={{ base: "flex-start", '2xl': 'center' }} justifyContent="space-between">
           <Container
             justifyContent="left"
-            maxW={{ base: '100%', md: 'md', '2xl': "full" }}
+            maxW={{ base: '100%', md: 'md', '2xl': "50%" }}
           >
             <Text
               as="h2"
             >
               Roadmap
             </Text>
-            {/* <span className="fest-dates">9 - 23rd JUNE</span> */}
+          </Container>
+          <Container
+            alignContent="flex-start"
+            justifyContent="right"
+            maxW={{ base: '100%', md: 'md', '2xl': "50%" }}
+            height="100%"
+          >
             <Box
+              className="roadmap"
+              position="relative"
               maxW={{ base: '100%', md: "100%" }}
               border="2px solid"
               borderColor="green.500"
               borderWidth="0 0 0 5px"
               p={{ base: 8, md: 8 }}
               sx={{
-                bg: "blueGlassAlpha",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 5px",
                 boxShadow: "0 0 30px #00000070",
@@ -81,13 +89,12 @@ export const RoadmapSection = () => {
               <Stack spacing={{ base: 2, md: 0 }} align="center" py={8}>
                 <Box d="inline-flex" alignItems="center" mb={5}>
                   <Icon as={GiPollenDust} w={"30px"} h={"30px"} color="green.500" />
-                  <Text as="h3" mt={1} color="green.600" >
+                  <Text as="h3" mt={1} className="gradient2 text noshadow" >
                     <span>Phases of ReVesture</span>
-
                   </Text>
-                  <Icon as={GiPineTree} w={"30px"} h={"30px"} color="green.700" />
+                  <Icon as={GiPineTree} w={"30px"} h={"30px"} color="blue.500" />
                 </Box>
-                <SimpleGrid position="relative" className="timeline-grid" spacing={19} columns={timeline.length} w="auto" >
+                <SimpleGrid  className="timeline-grid" spacing={19} columns={timeline.length} w="auto" >
                   {timeline && timeline.map((item, index) => (
                     <Feature key={index} phase={item} id={index} />
                   ))}
@@ -127,47 +134,49 @@ export const Feature = (props) => {
   }, [])
 
   const handleOpen = () => {
-    if (node.current && nodeInfo.current && item.current) {
-      console.log(nodeInfo);
-      console.log("isOpen");
-      gsap.to(nodeInfo.current, {
-        duration: 0.3,
-        delay: 0.1,
-        ease: "elastic.inOut(1, 0.3)",
-        x: nodeInfo.current.offsetRight,
-        y: item.current.parentElement.offsetTop,
-        scale: 1,
-        opacity: 1,
-        zIndex: 1,
-        width: item.current.parentElement.offsetWidth,
-      })
+    if (typeof window !== 'undefined') {
+      const rmContainer = document.querySelector('.roadmap');
+      console.log('rm', rmContainer);
+      if (node.current && nodeInfo.current && item.current, rmContainer) {
+        gsap.to(nodeInfo.current, {
+          duration: 0.3,
+          delay: 0,
+          ease: "elastic.inOut(1, 0.3)",
+          x: -  rmContainer.offsetLeft,
+          y: - rmContainer.offsetTop,
+          scale: 1,
+          opacity: 1,
+          zIndex: 2000,
+          width: rmContainer.offsetWidth,
+        })
 
+      }
     }
-
   }
-  const handleClose = () => {
-    if (node.current && nodeInfo.current && item.current) {
 
-      console.log(nodeInfo);
-      console.log('itemc', nodeInfo.current.offsetLeft);
-      gsap.to(nodeInfo.current, {
-        duration: 0.3,
-        delay: 0.1,
-        ease: "elastic.inOut(1, 0.3)",
-        x: item.current.parentElement.offsetLeft,
-        y: item.current.parentElement.offsetTop,
-        scale: 0,
-        opacity: 0,
-        width: item.current.parentElement.offsetWidth,
-        zIndex: -1,
-      })
+  const handleClose = () => {
+    if (typeof window !== 'undefined') {
+      const rmContainer = document.querySelector('.roadmap');
+      if (node.current && nodeInfo.current && item.current) {
+        gsap.to(nodeInfo.current, {
+          duration: 0.3,
+          delay: 0,
+          ease: "elastic.inOut(1, 0.3)",
+          x: - rmContainer.offsetLeft,
+          y: rmContainer.offsetTop,
+          scale: 0,
+          opacity: 0,
+          width: rmContainer.offsetWidth,
+          zIndex: -1,
+        })
+      }
     }
   }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const currentBox = document.querySelector(nodeInfo.current.id);
-      console.log(currentBox);
+      const rmContainer = document.querySelector('.roadmap');
+      console.log(rmContainer);
       sizes.current = {
         width: window.innerWidth,
         height: window.innerHeight,
@@ -180,14 +189,18 @@ export const Feature = (props) => {
         // Update sizes
         sizes.current.width = window.innerWidth;
         sizes.current.height = window.innerHeight;
-        nodeInfo.current.width = item.current.parentElement.offsetWidth;
+        nodeInfo.current.width = rmContainer.offsetWidth;
+        nodeInfo.current.style.height = rmContainer.innerHeight;
+
       });
       window.addEventListener('mousemove', handleMouseMove);
       if (open) {
+        // handleOpen();
         handleOpen();
       } else {
-        console.log('dom', dom);
         handleClose();
+        // handleClose();
+        nodeInfo.current.style.height = rmContainer.innerHeight;
       }
     }
   }, [handleMouseMove, open, dom, status]);
@@ -197,39 +210,48 @@ export const Feature = (props) => {
     <Box ref={item}>
       <VStack spacing={5}>
         <Button ref={node} id={`button-${id}`} colorScheme="ghost" w="100%" h="100%" onMouseOver={() => (setOpen(true))} onMouseLeave={() => setOpen(false)} >
-          <Icon aria-label={`Open ${title}`} as={GiPineTree} w={75} h={75} color={status === 1 ? 'green.600' : 'blue.500'} p={0} /></Button>
-        <Text color={status === 1 ? 'green.600' : 'blue.500'} width="100%" textAlign="center">{title}</Text>
+          <Icon aria-label={`Open ${title}`} as={GiPineTree} w={75} h={75} color={status === 1 ? 'green.600' : 'blue.500'} p={0}
+                      sx={{
+              transition: 'color 0.3s 0.1s ease',
+              '&:hover': {
+              color: status === 1 ? 'green.300' : 'blue.300'
+            }
+          }}
+          /></Button>
+        <Text color={status === 1 ? 'green.600' : 'blue.500'} width="100%" textAlign="center" fontSize={{base: '1.5vmin', md: '1vw'}} fontWeight={700}>{title}</Text>
 
       </VStack>
 
       <Box
         ref={nodeInfo}
         position="absolute"
+        top={0}
+        left={0}
         id={`item-${id}`}
         d="flex"
         minW={`${item.current && item.current.parentElement.innerWidth}px`}
-        maxH={`${item.current && item.current.parentElement.innerHeight * 0.5}px`}
-        flexDirection={responsiveSize === 'xs' ? 'column' : 'column'}
+        minH="100%"
+        flexDirection={responsiveSize === 'xs' ? 'column' : 'row'}
         alignItems="flex-start"
-        px={0}
+        px={5}
         pb={5}
         borderRadius=" 0 10px 10px 0"
         border="0px solid"
         opacity={status === 1 ? 1 : 0}
         borderColor={status === 1 ? 'green.600' : 'blue.500'}
-        transformOrigin="bottom left"
+        transformOrigin="center"
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
+        className={status === 1 ? "gradient" : "gradient-blue"}
         sx={{
-          bg: status === 1 ? "greenGlassAlpha" : "blueGlassAlpha",
           backdropFilter: "blur(7px)",
           borderRadius: "5px 30px 10px 5px",
           boxShadow: "0 0 30px #00000070",
         }}
       >
-        <Box>
-          <Badge colorScheme={status ? "green" : "ghost"} ml={3} variant="solid">{quarter}</Badge>
-          <Text fontWeight={500} fontSize={{ base: '4vmin', md: '0.8vmax' }} flex={1}
-            pl={3}
+        <Box w="25%" py={5}>
+          <Badge colorScheme={status === 1 ? "green" : "ghost"} bg={status === 1 ? "green.700" : "blue.700"} variant="solid"
+          >{quarter}</Badge>
+          <Text fontWeight={700} fontSize={{ base: '4vmin', md: '0.8vmax' }} flex={1}
             sx={{
               borderBottom: '2px solid',
               borderColor: status === 1 ? 'green.600' : 'transparent',
@@ -238,17 +260,18 @@ export const Feature = (props) => {
           >
             {title}
           </Text>
-          {status === 1 && <Text ml={3} color="green.200" textShadow="none" filter="none">In progress</Text>}
+          {status === 1 && <Text color="green.800" textShadow="none" filter="none">In progress</Text>}
         </Box>
-        <Box p={3} border="1px solid" borderColor={status ? 'green.600' : 'transparent'} borderRadius="md" className={status === 1 ? "gradient" : "transparent"} boxShadow={status === 1 ? "0 0 3px rgba(0,0,0,0.6)" : 'unset'}>
+        <Box p={5} w="75%">
           <UnorderedList d="flex"
             flexFlow="row wrap"
             alignItems="flex-start"
             justifyContent="space-between"
             listStyleType="none"
+            ml={0}
           >
             {description && description.map((item, index) => (
-              <ListItem key={index} d="inline-flex" alignItems="flex-start" w="48%" my={0}>
+              <ListItem key={index} d="inline-flex" alignItems="flex-start" w="48%" my={0} fontSize={{base: ''}}>
                 <Icon as={status === 1 ? WiHorizonAlt : WiHorizon} w={8} h={8} color="green.200" mr={3} />
                 <Text as="span" >{item}</Text>
               </ListItem>

@@ -173,7 +173,7 @@ export function SiteHeader() {
           </Box>
           <HStack spacing={8} alignItems={"center"}>
             <Flex alignItems={"center"}>
-            <Link href="/#home" flex={{base: 1}} fontWeight={900} fontSize={{base: '1.5vw'}}>
+            <Link href="/#home" flex={{base: 1}} fontWeight={900} fontSize={{base: '1.5vw'}} d="inline-flex" alignContent="center">
               {/* <BoxedNextImage
                 src={MF2Logo}
                 alt="MetaGame Logo"
@@ -188,7 +188,8 @@ export function SiteHeader() {
                   }
                 }}
               /> */}
-              <span className="gradient-cone text">ReVesture</span>
+                <span className="gradient-cone text">ReVesture</span>
+                <Image d="inline-flex" src="assets/img/logo.png" alt="ReVesture logo (Voxel Earth)" boxSize="35px" ml={2} />
               </Link>
               </Flex>
             <HStack
@@ -210,7 +211,7 @@ export function SiteHeader() {
                 px={5}
                 py={2}
                 color="green.400"
-                bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)"
+                bgGradient="linear(-90deg, green.500 -29.22%, green.800 107.53%)"
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
                 fontWeight={700}
                 size="sm"

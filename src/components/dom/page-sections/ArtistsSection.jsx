@@ -58,14 +58,14 @@ export const ArtistsSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "rgba(38,52,20,0.3)",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",
                 borderLeft: "2px solid green.400"
               }}
             >
-              <Text as="h2" color="blue.300">The Process</Text>
+              <Text as="h2">The Process</Text>
               <Text>We&apos;re still building but will be updating these sort of things as we implement them.</Text>
             </Box>
           </Container>

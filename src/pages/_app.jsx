@@ -67,7 +67,7 @@ const theme = extendTheme({
           textDecoration: "none",
         },
         "&.chakra-link": {
-          color: "green.700",
+          color: "blue.200",
           filter: 'none',
           _hover: {
             color: "green.600",
@@ -97,10 +97,10 @@ const theme = extendTheme({
         }
       },
       h2: {
-        color: "cyan.100",
+        color: "blue.100",
         fontSize: "3vw",
         fontWeight: '900',
-        // filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
+        filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
         "& + p": {
           fontSize: { base: "2.8vmin", md: "1.3vmax" },
           lineHeight: { base: "1.2", md: "inherit" },
@@ -109,7 +109,7 @@ const theme = extendTheme({
         },
       },
       h3: {
-        color: "teal.300",
+        color: "blue.100",
         fontSize: { base: "4vmin", md: "1.5vmax" },
         fontWeight: 700,
         mt: { base: 2, md: 5 },
@@ -172,11 +172,24 @@ const theme = extendTheme({
       },
       // Gradients
       ".gradient": {
-        bgGradient: `linear(90deg, ${PPTheme.colors.green[700]} -29.22%, ${PPTheme.colors.green[700]} 107.53%)`,
+        bgGradient: `linear(90deg, ${PPTheme.colors.green[500]} -29.22%, ${PPTheme.colors.green[600]} 107.53%)`,
         '&.metagame': {
           bgGradient: `linear(90deg, ${PPTheme.colors.purple[300]} -29.22%, ${PPTheme.colors.purple[400]} 107.53%)`,
         },
         '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          textShadow: 'unset',
+          zIndex: 20001,
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "unset",
+          }
+        }
+      },
+            ".gradient-blue": {
+        bgGradient: `linear(90deg, ${PPTheme.colors.blue[500]} -29.22%, ${PPTheme.colors.blue[600]} 107.53%)`,
+               '&.text': {
           display: "inline-block",
           bgClip: "text",
           textShadow: 'unset',

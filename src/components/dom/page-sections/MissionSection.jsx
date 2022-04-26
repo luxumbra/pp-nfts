@@ -61,18 +61,18 @@ export const MissionSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "rgba(38,52,20,0.3)",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",
                 borderLeft: "2px solid green.400"
               }}
             >
-              <Text as="h2" color="blue.300">Vision</Text>
+              <Text as="h2">Vision</Text>
               <Text>We see a future of interwoven inner & outer worlds -vibrant and playful.</Text>
               <Text>Full of smiling faces, virtual and real, with a sense of adventure and fun.</Text>
               <Text className="">Celebrating our collective accomplishments of consciously restoring our Planet.</Text>
-              <Text as="h3" color="blue.200">
+              <Text as="h3" >
                 Some final words...
               </Text>
               <Text>ReVesture aims to remind us all...</Text>

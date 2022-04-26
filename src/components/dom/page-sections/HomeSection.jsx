@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import {
   Box,
   Button,
+  Image,
   Link,
   Text,
   HStack,
@@ -35,7 +36,6 @@ export const HomeSection = () => {
         opacity={onScreen ? 1 : 0}
         transform={`translate3d(${onScreen ? 0 : "-70px"}, 0, 0)`}
         transition="transform 0.3s 0.4s ease-in-out, opacity 0.6s 0.5s ease-in"
-
       >
         <Box
           d="inline-flex"
@@ -59,14 +59,14 @@ export const HomeSection = () => {
               },
             }}
           >
-            ReVesture<span role="img" aria-label="Tree mascot" className="gradient text noshadow">🌳</span>
+            ReVesture<Image d="inline-flex" src="assets/img/logo.png" alt="ReVesture logo (Voxel Earth)" boxSize="75px" ml={2} />
           </Text>
           {/* <span className="fest-dates">Earth Day 2022 {' '} <Icon as={FaGlobeAmericas} w={5} h={5} /> </span> */}
         </Box>
         <Box className="__content__body" maxW={{base: '66vw', lg: 'unset'}}>
           <Text as="p" fontWeight={300} mt={-4}>
             powered by{" "}
-            <Text as="span"  fontWeight={900} className="gradient text">Regen Guild</Text>
+            <Text as="span" fontWeight={900} className="gradient text">Regen Guild</Text>
           </Text>
           <Text as="p" fontSize="1.5vmax" mt={{base: 3, md: 0}} fontWeight={500} lineHeight={1.2}>
             Clothe your jester avatar, offer a loving irl gesture, all in one <span className="gradient text"> carbon negative</span> transaction.
