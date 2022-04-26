@@ -9,26 +9,33 @@ import dynamic from 'next/dynamic'
 import { settings } from '@/seo.config';
 import SocialImg from "@/static/assets/img/social.png";
 
-import { ChakraProvider, CSSReset, extendTheme } from "@chakra-ui/react";
-
+import {
+  ChakraProvider, CSSReset, extendTheme,
+  bgGradient,
+  textGradient,
+} from "@chakra-ui/react";
+import { PPTheme } from '@/theme/theme';
+import { GiHidden } from "react-icons/gi";
 
 const theme = extendTheme({
+  ...PPTheme,
   styles: {
     global: {
       html: {
-        bg: "linear-gradient(0deg, rgba(41,2,80,1) 0%, rgba(25,0,50,1) 40%)",
+        bgGradient: `linear(0deg, ${PPTheme.colors.green[400]} -29.22%, ${PPTheme.colors.green[800]} 107.53%)`,
         scrollBehavior: "smooth",
       },
       body: {
-        bg: "linear-gradient(0deg, rgba(41,2,80,1) 0%, rgba(25,0,50,1) 40%)",
-        color: "#ffeded",
+        bgGradient: `linear(0deg, ${PPTheme.colors.green[400]} -29.22%, ${PPTheme.colors.green[800]} 107.53%)`,
+        color: "white",
         fontFamily: '"Exo 2", sans-serif',
         fontSize: "16px",
-        fontWeight: 400,
+        fontWeight: 500,
         p: 0,
         m: '0 auto',
         minH: "100vh",
         width: '100%',
+        overflowX: 'hidden',
         // overflowY: "auto",
         '.loading-canvas': {
           '.dom-loader': {
@@ -52,50 +59,59 @@ const theme = extendTheme({
       //   width: '100%',
       // },
       a: {
-        color: "#FF61E6",
+        color: "green.700",
         textDecoration: "none",
         transition: "color 0.2s ease",
         _hover: {
-          color: "#76EBF2",
+          color: "green.600",
           textDecoration: "none",
         },
         "&.chakra-link": {
-          color: "#FF61E6",
+          color: "blue.200",
+          filter: 'none',
           _hover: {
-            color: "#76EBF2",
+            color: "green.600",
             textDecoration: "none",
           },
         },
       },
       h1: {
-        color: "#fff",
-        fontSize: "4vmax",
-        fontWeight: 700,
+        color: "green.100",
+        fontSize: "4vw",
+        lineHeight: '1.2',
+        fontWeight: 900,
         "& span": {
-          color: "#fff",
+          color: "green.100",
           fontSize: "4vmax",
           fontWeight: 700,
         },
         '& + .fest-dates': {
           fontWeight: 700,
           justifyContent: "right",
-          opacity: 1,
+          opacity: 0.7,
           transform: {
             base: "translateY(5px)",
             lg: "translateY(9px)",
-            "2xl": "translateY(10px)",
-        },
+            "2xl": "translateY(15px)",
+          },
         }
       },
       h2: {
-        color: "#fff",
-        fontSize: "4vmax",
-        fontweight: 500,
-        textShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
+        color: "blue.100",
+        fontSize: "3vw",
+        fontWeight: '900',
+        filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
+        "& + p": {
+          fontSize: { base: "2.8vmin", md: "1.3vmax" },
+          lineHeight: { base: "1.2", md: "inherit" },
+          mt: 0,
+          mb: 1,
+        },
       },
       h3: {
+        color: "blue.100",
         fontSize: { base: "4vmin", md: "1.5vmax" },
-        fontWeight: 500,
+        fontWeight: 700,
         mt: { base: 2, md: 5 },
         "& + p": {
           fontSize: { base: "2.8vmin", md: "1vmax" },
@@ -106,28 +122,42 @@ const theme = extendTheme({
         },
       },
       h4: {
+        color: "cyan.100",
         fontSize: "1vmax",
-        fontWeight: 500,
+        fontWeight: 700,
       },
       p: {
         fontSize: { base: "2.6vmin", md: ".8vmax" },
-        textShadow: "0 0 5px rgba(0, 0, 0, 0.6)",
+        lineHeight: { base: "1.2", md: "1.6" },
+        mb: { base: 2, md: 3 },
+        // filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+      },
+      nav: {
+        a: {
+          _hover: {
+            bgGradient: `linear(-90deg, ${PPTheme.colors.green[400]} -29.22%, ${PPTheme.colors.green[800]} 107.53%)`,
+            bgClip: "text",
+          }
+
+        },
       },
       section: {
         position: "relative",
         display: 'flex',
-        // display: 'none',
         alignItems: "center",
-        height: '100vh',
+        h: '100vh',
         w: '100vw',
         m: 0,
         py: 0,
         px: { base: 4, lg: '10%' },
+        overflowY: { base: 'auto', md: 'hidden' },
+        overflowX: 'hidden',
         zIndex: 2000,
       },
       ".__content__body": {
         "& > p:first-of-type": {
           fontSize: { base: "2.6vmin", md: "1vmax" },
+          lineHeight: { base: "1.2", md: "1.6" },
           fontWeight: 500,
         },
         "&--no-firstof": {
@@ -142,44 +172,87 @@ const theme = extendTheme({
       },
       // Gradients
       ".gradient": {
-        display: "inline-block",
-        background: "linear-gradient(90deg, #FF61E6 -29.22%, #7C56FF 107.53%)",
-        backgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        textFillColor: "transparent",
-        textShadow: 'unset',
-        filter: "drop-shadow(0 0 5px rgba(0,0,0,0.6))",
+        bgGradient: `linear(90deg, ${PPTheme.colors.green[500]} -29.22%, ${PPTheme.colors.green[600]} 107.53%)`,
+        '&.metagame': {
+          bgGradient: `linear(90deg, ${PPTheme.colors.purple[300]} -29.22%, ${PPTheme.colors.purple[400]} 107.53%)`,
+        },
+        '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          textShadow: 'unset',
+          zIndex: 20001,
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "unset",
+          }
+        }
+      },
+            ".gradient-blue": {
+        bgGradient: `linear(90deg, ${PPTheme.colors.blue[500]} -29.22%, ${PPTheme.colors.blue[600]} 107.53%)`,
+               '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          textShadow: 'unset',
+          zIndex: 20001,
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "unset",
+          }
+        }
       },
       ".gradient2": {
-        display: "inline-block",
-        background:
-          "linear-gradient(90.24deg, #79F8FB 0.3%, #9032E6 55.76%, #E839B7 106.78%)",
-        backgroundPosition: "center",
-        backgroundSize: "100%",
-        backgroundClip: "text",
-        textFillColor: "transparent",
-        WebkitTextFillColor: "transparent",
-        textShadow: 'unset',
-        filter: "drop-shadow(0 0 5px rgba(0,0,0,0.6))",
+        bgGradient:
+          `linear(90.24deg, ${PPTheme.colors.green[500]} 0.3%, ${PPTheme.colors.green[600]} 55.76%, ${PPTheme.colors.blue[300]} 66.78%)`,
+        '&.text': {
+          display: "inline-block",
+          backgroundPosition: "center",
+          backgroundSize: "100%",
+          bgClip: "text",
+          textShadow: 'unset',
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.8))",
+          '&.noshadow': {
+            filter: "none",
+          }
+        }
+      },
+      ".gradient-vert": {
+        bgGradient:
+          `linear(0, ${PPTheme.colors.yellow[400]} , ${PPTheme.colors.green[700]} 30%)`,
+        '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          transition: "background 0.3s ease",
+          textShadow: 'unset',
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "none",
+          }
+        }
       },
       ".gradient-cone": {
-        display: "inline-block",
         background:
-          "conic-gradient(from 92.2deg at 60.45% 74.83%, #8EBBFF 0deg, #DE3FFF 88.12deg, #79F8FB 105deg, #7C56FF 165deg, #FF61E6 251.25deg, #927CFF 286.87deg, #76EBF2 326.25deg, #8EBBFF 360deg)",
-        backgroundPosition: "-254%",
-        backgroundSize: "100%",
-        backgroundClip: "text",
-        textFillColor: "transparent",
-        WebkitTextFillColor: "transparent",
-        transition: "background 0.3s ease",
-        textShadow: 'unset',
-        filter: "drop-shadow(0 0 5px rgba(0,0,0,0.6))",
+          `conic-gradient(from 92.2deg at 20.45% 74.83%, ${PPTheme.colors.green[600]} 0deg, ${PPTheme.colors.green[400]} 20.12deg, ${PPTheme.colors.blue[200]} 105deg, ${PPTheme.colors.blue[600]} 165deg, ${PPTheme.colors.blue[600]} 251.25deg, ${PPTheme.colors.blue[500]} 286.87deg, ${PPTheme.colors.green[500]} 326.25deg, ${PPTheme.colors.green[600]} 360deg)`,
+        '&.text': {
+          display: "inline-block",
+          backgroundPosition: "-254%",
+          backgroundSize: "100%",
+          backgroundClip: "text",
+          transition: "background 0.3s ease",
+          textShadow: 'unset',
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "none",
+          }
+        }
+      },
+      '.loading-bar': {
+        bg: PPTheme.colors.green[400],
       },
       ".highlight": {},
       ".fest-dates": {
         d: "inline-flex",
         width: "100%",
-        color: "#FF61E6",
+        color: `${PPTheme.colors.green[900]}`,
         fontSize: { base: "2.2vmin", md: "0.7vmax" },
         fontWeight: 500,
         justifyContent: "left",

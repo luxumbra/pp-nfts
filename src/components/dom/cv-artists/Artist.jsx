@@ -28,7 +28,7 @@ export const Artist = ({artist}) => {
       >
         <Box className="__content__body--no-firstof" textAlign="right" mt={6}>
           <Text as="h2">{name}</Text>
-          <Text className="gradient">
+          <Text className="gradient text">
             {strapline}
           </Text>
           <Text>

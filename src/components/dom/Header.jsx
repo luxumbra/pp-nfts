@@ -9,6 +9,7 @@ import {
   Image,
   useBreakpoint,
   useDisclosure,
+  bgGradient,
   Stack,
 } from "@chakra-ui/react";
 import { BiWalletAlt, BiJoystick } from 'react-icons/bi'
@@ -24,28 +25,28 @@ const Links = [
     href: "#home",
   },
   {
-    name: "Schedule",
-    href: "#schedule",
+    name: "Marketplace",
+    href: "#marketplace",
   },
   {
-    name: "Workshops",
-    href: "#workshops",
+    name: "About ReVesture",
+    href: "#about",
   },
   {
-    name: "Speakers",
-    href: "#speakers",
+    name: "Mission",
+    href: "#mission",
   },
   {
-    name: "MetaFest-a-Verse",
-    href: "#metafest-verse",
+    name: "Legos",
+    href: "#legos",
   },
   {
-    name: "Chat",
-    href: "#chat",
+    name: "For Artists",
+    href: "#artists",
   },
-  {
-    name: "Apply",
-    href: "#apply",
+    {
+    name: "Roadmap",
+    href: "#roadmap",
   },
 ];
 
@@ -69,19 +70,17 @@ export function SiteHeader() {
       px={2}
       py={1}
       rounded={"md"}
-      textShadow="0 0 10px rgba(0, 0, 0, 0.8)"
       opacity={!linkOnScreen ? 1 : 0}
       transform={`translate3d(${!linkOnScreen ? 0 : -200}, 0, 0)`}
       transition={`all 0.2s ${0.6 + offset}s ease`}
       _hover={{
         textDecoration: "none",
-        background: "linear-gradient(-90deg, #FF61E6 -29.22%, #7C56FF 107.53%)",
-        backgroundClip: "text",
-        WebkitTextFillColor: "transparent",
+        bgGradient: `linear(-90deg, green.400 -29.22%, green.800 107.53%)`,
+        bgClip: "text",
       }}
       href={`/${href}`}
       onClick={handleToggle}
-      color="white"
+      color="green.100"
     >
       {children}
     </Link>
@@ -151,7 +150,7 @@ export function SiteHeader() {
                 "path, circle": {
                   fill: isOpen ? "transparent" : "transparent",
                   transition: "all 0.2s 0.2s ease",
-                  stroke: isOpen ? "#7C56FF" : "#927CFF",
+                  stroke: isOpen ? "green.700" : "green.400",
                 },
                 ".top-line": {
                   transition: "all 0.6s ease",
@@ -173,8 +172,9 @@ export function SiteHeader() {
             </Button>
           </Box>
           <HStack spacing={8} alignItems={"center"}>
-            <Link href="/#home" flex={{base: 1}}>
-              <BoxedNextImage
+            <Flex alignItems={"center"}>
+            <Link href="/#home" flex={{base: 1}} fontWeight={900} fontSize={{base: '1.5vw'}} d="inline-flex" alignContent="center">
+              {/* <BoxedNextImage
                 src={MF2Logo}
                 alt="MetaGame Logo"
                 boxSize={{ base: "65px", md: "95px" }}
@@ -187,8 +187,11 @@ export function SiteHeader() {
                     filter: "drop-shadow(0 0 15px #FF61E696)",
                   }
                 }}
-              />
-            </Link>
+              /> */}
+                <span className="gradient-cone text">ReVesture</span>
+                <Image d="inline-flex" src="assets/img/logo.png" alt="ReVesture logo (Voxel Earth)" boxSize="35px" ml={2} />
+              </Link>
+              </Flex>
             <HStack
               as={"nav"}
               spacing={4}
@@ -204,22 +207,23 @@ export function SiteHeader() {
           <Flex alignItems="center" justifyContent="end" width={{ base: "25%", md: 'auto' }}>
             {screenSize !== 'base' ? (
               <Link
-                href="https://metagame.wtf"
+                href="#"
                 px={5}
                 py={2}
-                color={"white"}
-                bg="#927CFF"
+                color="green.400"
+                bgGradient="linear(-90deg, green.500 -29.22%, green.800 107.53%)"
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
+                fontWeight={700}
                 size="sm"
                 mr={0}
                 borderRadius="md"
                 isExternal
               >
-                Join MetaGame
+                Connect
               </Link>
             ) : (
-                              <Link
-                href="https://metagame.wtf"
+              <Link
+                href="#"
                 px={0}
                 py={0}
                 // color={"white"}
@@ -232,11 +236,11 @@ export function SiteHeader() {
               >
               <IconButton
               icon={<BiJoystick />}
-              aria-label="Join MetaGame"
+              aria-label="Join ReVesture"
               flex={0}
               fontSize={{base: '12vmin', lg: "2vmax"}}
               colorScheme="ghost"
-              color="#927CFF"
+              color="green.400"
               alignSelf="center"
               // filter="drop-shadow(0 0 15px #FF61E6)"
             />

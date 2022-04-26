@@ -1,13 +1,13 @@
 import dynamic from 'next/dynamic'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from "three";
-import { Environment, OrbitControls, Preload } from '@react-three/drei'
+import { Environment, OrbitControls, Preload, Stage } from '@react-three/drei'
 import {
   Box
 } from '@chakra-ui/react'
 import useStore from '@/helpers/store'
-import { Suspense, useEffect, useRef } from 'react'
-
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { EffectComposer, Bloom, Glitch, Noise, Render, Bokeh, UnrealBloom, DepthOfField, Vignette } from '@react-three/postprocessing';
 // const { OctoEasterEggR3F } = dynamic(() => import('@/components/canvas/EasterEgg.r3f'), {
 //   ssr: false,
 // })
@@ -21,6 +21,7 @@ const LControl = () => {
     if (control) {
       dom.current.style['touch-action'] = 'none'
     }
+
   }, [dom, control])
 
 
@@ -29,7 +30,15 @@ const LControl = () => {
 }
 const LCanvas = ({ children }) => {
   const dom = useStore((state) => state.dom)
+  // const [effect, setEffect] = useState(false)
 
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const canvas = document.querySelector('canvas');
+  //     dom.current.style['touch-action'] = 'none'
+  //     canvas.addEventListener('onMouseDown', () => setEffect(true))
+  //   }
+  // }, [dom, effect])
   return (
     <Canvas
       mode='concurrent'
@@ -47,8 +56,9 @@ const LCanvas = ({ children }) => {
       {/* <LControl /> */}
       <Preload all />
       <Suspense fallback={<CanvasLoader />}>
+        <Environment background files={'assets/environment/industrial_sunset_02_2k.hdr'} path='/' />
         {children}
-        <Environment preset="forest" />
+        <Effect />
       </Suspense>
     </Canvas>
   )
@@ -56,3 +66,15 @@ const LCanvas = ({ children }) => {
 
 export default LCanvas
 
+const Effect = ({ on = false }) => {
+  console.log(on);
+  return (
+    <EffectComposer>
+          <Noise opacity={0.02} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+          <Vignette eskil={false} offset={0.004} darkness={ 1.2} />
+      {/* <Glitch /> */}
+      </EffectComposer>
+
+  )
+}

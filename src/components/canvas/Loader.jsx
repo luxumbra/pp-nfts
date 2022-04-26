@@ -3,6 +3,7 @@ import { Html, useProgress } from "@react-three/drei";
 import {
   Box,
   Text,
+  bgGradient,
 } from "@chakra-ui/react";
 import gsap from "gsap";
 import useStore from '@/helpers/store'
@@ -29,15 +30,15 @@ export const CanvasLoader = () => {
   }, [ratioLoaded]);
 
   return (
-    <Html center background="linear-gradient(0deg, rgba(41,2,80,1) 0%, rgba(25,0,50,1) 40%)" >
-      <Box width="100vw" height="100vh" d="flex" flexFlow="column wrap" alignItems="center" justifyContent="center" opacity={ratioLoaded < 1 ? 0.7 : 0} color="#FF61E6" sx={{
+    <Html center bgGradient="linear(0deg, green.800 0%, green.300 40%)" >
+      <Box width="100vw" height="100vh" d="flex" flexFlow="column wrap" alignItems="center" justifyContent="center" opacity={ratioLoaded < 1 ? 0.7 : 0} color="green.200" sx={{
         transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out'
       }}>
         <Box d="flex" flexFlow="column wrap" w="100%" textAlign="center">
-          <Text fontSize="5vw" className="gradient" mb={0}>
+          <Text fontSize="5vw" className="gradient text" mb={0}>
             {progress.toFixed()}% loaded
           </Text>
-        <Box ref={loadingBar} className="loading-bar" mb={2} height="5px" width="100%" bg="linear-gradient(90.24deg, #79F8FB 0.3%, #9032E6 55.76%, #E839B7 106.78%)" sx={{
+          <Box ref={loadingBar} className="loading-bar" mb={2} height="3px" maxH="3px" width="100%" sx={{
           opacity: ratioLoaded < 1 ? 0.7 : 0,
           transform: ratioLoaded < 1 ? `scaleX(${ratioLoaded})` : 0,
           transformOrigin: ratioLoaded < 1 ? 'top left' : 'top right',
