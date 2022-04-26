@@ -1,0 +1,113 @@
+import React, { useRef, useState } from "react";
+import { useFrame } from '@react-three/fiber'
+import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+import gsap from "gsap";
+import useStore from '@/helpers/store'
+
+export default function LegoBlock(props) {
+  const router = useStore((s) => s.router)
+  const group = useRef();
+  const { nodes } = useGLTF("/assets/models/legoBrick.glb");
+  const { route } = props
+  const clock = new THREE.Clock();
+  let previousTime = 0;
+
+
+  useFrame(() => {
+    const elapsedTime = clock.getElapsedTime();
+    const deltaTime = elapsedTime - previousTime;
+    previousTime = elapsedTime;
+  })
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <group
+        position={[0, 0.54, 0]}
+        onClick={() => router.push(route)}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube.geometry}
+          material={nodes.Cube.material}
+          scale={[1, 0.58, 2.26]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder000.geometry}
+          material={nodes.Cylinder000.material}
+          position={[0.5, 0.49, 1.8]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder003.geometry}
+          material={nodes.Cylinder003.material}
+          position={[0.5, 0.49, 0.6]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder006.geometry}
+          material={nodes.Cylinder006.material}
+          position={[-0.5, 0.49, -0.6]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder007.geometry}
+          material={nodes.Cylinder007.material}
+          position={[-0.5, 0.49, -1.8]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder002.geometry}
+          material={nodes.Cylinder002.material}
+          position={[0.5, 0.49, -0.6]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder001.geometry}
+          material={nodes.Cylinder001.material}
+          position={[0.5, 0.49, -1.8]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder005.geometry}
+          material={nodes.Cylinder005.material}
+          position={[-0.5, 0.49, 1.8]}
+          scale={0.38}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder004.geometry}
+          material={nodes.Cylinder004.material}
+          position={[-0.5, 0.49, 0.6]}
+          scale={0.38}
+        />
+      </group>
+
+      <pointLight
+        intensity={0.6}
+        distance={3}
+        decay={2}
+        color={'0xffffff'}
+        castShadow
+      />
+    </group>
+  );
+}
+
+useGLTF.preload("/assets/models/legoBrick.glb");

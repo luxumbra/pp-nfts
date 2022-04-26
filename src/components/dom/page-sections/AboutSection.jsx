@@ -33,7 +33,7 @@ export const AboutSection = () => {
             <Text as="h2">About ReVesture</Text>
             <Text>The MetaVerse is constantly expanding.  More and more Worlds are populated every day.  And in these worlds, we all want to strut our virtual stuff...</Text>
             <Box>
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 EcoSwag
               </Text>
               <Text>
@@ -45,7 +45,7 @@ export const AboutSection = () => {
                 In the quickly changing real world, businesses and individuals alike are increasingly choosing accountability for their carbon footprint.</Text>
               <Text>ReVesture can help anyone do that with a little fun attached.</Text>
 
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 Verifiable proofs via NFTs
               </Text>
               <Text>
@@ -62,13 +62,13 @@ export const AboutSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "greenGlassAlpha",
+                bg: "blueGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",
               }}
             >
-              <Text as="h2" color="blue.300">
+              <Text as="h2" color="blue.100">
                 Tech TL;DR
               </Text>
               <Text fontSize="inherit">

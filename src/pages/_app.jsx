@@ -109,7 +109,7 @@ const theme = extendTheme({
         },
       },
       h3: {
-        color: "cyan.100",
+        color: "teal.300",
         fontSize: { base: "4vmin", md: "1.5vmax" },
         fontWeight: 700,
         mt: { base: 2, md: 5 },
@@ -122,6 +122,7 @@ const theme = extendTheme({
         },
       },
       h4: {
+        color: "cyan.100",
         fontSize: "1vmax",
         fontWeight: 700,
       },

@@ -86,6 +86,10 @@ const Polygon = dynamic(() => import('@/components/canvas/b0gie/Polygon'), {
   ssr: false,
 })
 
+const LegoBlock = dynamic(() => import('@/components/canvas/b0gie/LegoBlock'), {
+  ssr: false,
+})
+
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
 import { lerp } from "three/src/math/MathUtils";
@@ -136,6 +140,7 @@ const R3F = () => {
   const refi = useRef(null);
   const thirdweb = useRef(null);
   const polygon = useRef(null);
+  const lego = useRef(null);
   const camera = useRef();
   const cameraGroup = useRef();
   const scrollY = useRef(0)
@@ -187,7 +192,12 @@ const R3F = () => {
         scrollY.current = window.scrollY;
 
         // console.log(scrollY);
-
+        if (lego.current) {
+          lego.current.rotation.x = scrollY.current * 0.0004;
+          lego.current.rotation.y = scrollY.current * 0.0008;
+          lego.current.rotation.z = scrollY.current * 0.0003;
+          lego.current.position.y = Math.cos(scrollY.current /2) * 0.0005;
+        }
         const newSection = Math.round(scrollY.current / sizes.current.height);
         if (newSection !== currentSection) {
           currentSection = newSection;
@@ -337,7 +347,7 @@ const R3F = () => {
       industrial.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
     }
     if (jetsetter.current) {
-      jetsetter.current.position.y = -1 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.05;
+      jetsetter.current.position.y = Math.cos(elapsedTime * 0.1) * Math.PI * 0.05;
 
       // group.current.rotation.y = elapsedTime * 0.03;
       jetsetter.current.rotation.z = -0.05 - Math.sin(elapsedTime * 0.3) * Math.PI * 0.03;
@@ -394,6 +404,12 @@ const R3F = () => {
       polygon.current.position.y = - 2 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
       polygon.current.rotation.z = -elapsedTime * 0.1;
     }
+
+    //     if (lego.current) {
+    //   lego.current.position.x = 5 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
+    //   lego.current.position.y = 4 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+    //   lego.current.rotation.z = -elapsedTime * 0.1;
+    // }
   });
 
   return (
@@ -405,7 +421,7 @@ const R3F = () => {
 
       <Suspense fallback={<CanvasLoader />}>
 
-        <fog attach="fog" args={["#88B748", 1, 30]} />
+        <fog attach="fog" args={["#7C56FF", 1, 30]} />
         <R3FSceneSection name="SectionOne" count={0}>
 
           <BabyEarthVox animate={true} position={[3, 2, -3]} />
@@ -453,6 +469,9 @@ const R3F = () => {
           </group>
           <group ref={polygon} position={[-2, -2, -2]} rotation={[0, 0, 0]}>
             <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" />
+          </group>
+            <group ref={lego} position={[-2, 4, -8]} rotation={[0, 0, 0]}>
+            <LegoBlock  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" />
           </group>
         </R3FSceneSection>
 

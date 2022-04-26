@@ -61,7 +61,7 @@ export const HomeSection = () => {
           >
             ReVesture<span role="img" aria-label="Tree mascot" className="gradient text noshadow">🌳</span>
           </Text>
-          <span className="fest-dates">Earth Day 2022 {' '} <Icon as={FaGlobeAmericas} w={5} h={5} /> </span>
+          {/* <span className="fest-dates">Earth Day 2022 {' '} <Icon as={FaGlobeAmericas} w={5} h={5} /> </span> */}
         </Box>
         <Box className="__content__body" maxW={{base: '66vw', lg: 'unset'}}>
           <Text as="p" fontWeight={300} mt={-4}>

@@ -40,7 +40,7 @@ export const ArtistsSection = () => {
               Are you a 3D modeling wizard?  A voxel renaissance sculptor?  A pixel throwing punk?
             </Text>
             <Box>
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 Calling all artists!
               </Text>
               <Text>Do you create avatars and wearables for virtual spaces? Maybe build skyscrapers on parcels in various MetaVerses? Well, that&apos;s pretty cool. Seriously!</Text>

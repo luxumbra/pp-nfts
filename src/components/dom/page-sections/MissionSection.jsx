@@ -34,19 +34,19 @@ export const MissionSection = () => {
               Our mission is pretty simple yet highly complex,<br />with a dash of fun!
             </Text>
             <Box>
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 Simple bits
               </Text>
               <Text>
                 Simply to help everyone reduce &amp; remove global carbon emissions &amp; support regenerative projects around the globe. 🌎
               </Text>
 
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 Trickier bits
               </Text>
               <Text>Nicely packaging that ability into an artistic NFT, using innovative Web3 &amp; blockchain technologies. Digi-physical pairing of real world actions &amp; assets <br /> to new virtual realities.</Text>
 
-              <Text as="h3" className="gradient text">
+              <Text as="h3">
                 Dash of fun...
               </Text>
               <Text>Interacting with this NFT in the virtual MetaVerse. Wear it. Be it. Walk inside of it.</Text>

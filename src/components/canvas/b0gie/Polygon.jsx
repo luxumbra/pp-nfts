@@ -52,7 +52,7 @@ export default function Polygon(props) {
         intensity={0.6}
         distance={3}
         decay={2}
-        color={'0xfff'}
+        color={'0xffffff'}
         castShadow
       />
     </group>

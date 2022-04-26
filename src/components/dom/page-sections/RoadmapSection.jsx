@@ -57,7 +57,7 @@ export const RoadmapSection = () => {
         <Box className="__content__body" d={{ base: 'unset', md: "flex" }} flexFlow={{ base: 'column nowrap', '2xl': "row nowrap" }} alignItems={{ base: "flex-start", '2xl': 'center' }} justifyContent="space-between">
           <Container
             justifyContent="left"
-            maxW={{ base: '100%', md: 'md', '2xl': "2xl" }}
+            maxW={{ base: '100%', md: 'md', '2xl': "full" }}
           >
             <Text
               as="h2"

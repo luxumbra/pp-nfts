@@ -145,7 +145,7 @@ export const PartnersSection = () => {
               className=""
             >
               <Text as="h3" color="blue.300">
-                The tools we use
+                Toolbox 🛠️
               </Text>
               <SimpleGrid columns={3} spacing={4}>
                 <Box className="lego">
