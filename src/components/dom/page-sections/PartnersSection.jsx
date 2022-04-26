@@ -49,10 +49,6 @@ export const PartnersSection = () => {
               <SimpleGrid columns={3} spacing={8}
                 sx={{
                   'p + a': {
-                    bg: 'green.700',
-                    fontSize: 'xs',
-                    borderRadius: 'md',
-                    color: 'white',
                     p: 1,
                     '&:hover': {
                       color: 'green.200',
@@ -88,7 +84,7 @@ export const PartnersSection = () => {
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Cryptovoxels</Text>
-                  <Text>We 💓 voxels. Our team has been building things in CV since the start.</Text>
+                  <Text>We 💓 Voxels. Our team has been building things in CV since the start.</Text>
                   <Link href="https://www.cryptovoxels.com/play?coords=SW@385E,108S" isExternal><ExternalLinkIcon  mr={1}/>Cryptovoxels</Link>
                 </Box>
                 <Box className="lego">
@@ -126,14 +122,31 @@ export const PartnersSection = () => {
               <Text as="h2" >
                 In the future
               </Text>
-              <SimpleGrid columns={2} spacing={4}>
+              <SimpleGrid columns={2} spacing={4}
+                sx={{
+                  'p': {
+                      mb: 1
+                    },
+                  'p + a': {
+                      // fontSize: 'xs',
+                    borderRadius: 'md',
+                    color: 'white',
+                    p: 1,
+                    '&:hover': {
+                      color: 'green.200',
+                      bg: 'green.900'
+                    }
+                  }
+                }}>
                 <Box className="lego">
                   <Text as="h4">Gnosis (Formerly xDai)</Text>
                   <Text>We&apos;re big fans of the Gnosis ecosystem &amp; see a bridge in the future with cross-chain functionality for ReVesture.</Text>
+                  <Link href="https://gnosis.io/" isExternal><ExternalLinkIcon mr={1} />Gnosis</Link>
                 </Box>
                 <Box className="lego">
-                  <Text as="h4">Cosmos</Text>
-                  <Text>We&apos;re new to Cosmos but continue hearing great things, so expect cross-chain support with these guys soon<span role="img" aria-label="Soon, we promise">™️</span> (See <Link href="#roadmap">Roadmap</Link>).</Text>
+                  <Text as="h4">Cosmos Network</Text>
+                  <Text>We&apos;re new to Cosmos but continue hearing great things, so expect cross-chain support with these guys soon<span role="img" aria-label="Soon, we promise">™️</span></Text>
+                  <Link href="https://cosmos.network/" isExternal><ExternalLinkIcon mr={1} />Cosmos</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">MetaFactory</Text>
@@ -150,18 +163,21 @@ export const PartnersSection = () => {
               textAlign="left"
               className=""
             >
-              <Text as="h3" color="blue.300">
+              <Text as="h3">
                 Toolbox 🛠️
               </Text>
               <SimpleGrid columns={3} spacing={4}>
                 <Box className="lego">
                   <Text as="h4">Blender</Text>
+                  <Link href="https://www.blender.org/" isExternal><ExternalLinkIcon mr={1} />blender.org</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">MagicaVoxel</Text>
+                  <Link href="https://ephtracy.github.io" isExternal><ExternalLinkIcon mr={1} />MagicaVoxel</Link>
                 </Box>
                 <Box className="lego">
                   <Text as="h4">Goxel</Text>
+                  <Link href="https://goxel.xyz" isExternal><ExternalLinkIcon mr={1} />goxel.org</Link>
                 </Box>
               </SimpleGrid>
             </Box>

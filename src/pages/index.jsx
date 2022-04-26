@@ -165,14 +165,10 @@ const R3F = () => {
   /**
          * Cursor / Mouse
          */
-  // const cursor = useMemo({
-  //   x: 0,
-  //   y: 0
-  // }, []);
+
 
 
   useEffect(() => {
-    console.log('DOM in state:', dom.current);
     if (typeof window !== "undefined") {
       sizes.current = {
         width: window.innerWidth,
@@ -203,97 +199,6 @@ const R3F = () => {
         if (newSection !== currentSection) {
           currentSection = newSection;
           console.log('Current section:', currentSection);
-          if (vid1.current) {
-            switch (currentSection) {
-              case 0:
-                gsap.to(vid1.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: -8,
-                  y: 0,
-                  z: 0,
-                });
-                break;
-
-              case 1:
-                gsap.from(vid1.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: -8,
-                  y: 0,
-                  z: 0
-                });
-                gsap.to(vid1.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: 1.5,
-                  y: 0,
-                  z: -3
-                });
-                gsap.to(vid1.current.rotation, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  y: -Math.PI * 0.1,
-                });
-                break;
-
-              default:
-                gsap.to(vid1.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: -8,
-                  y: 0,
-                  z: 0,
-                });
-                break;
-            }
-          }
-          if (vid2.current) {
-            switch (currentSection) {
-              case 0:
-                gsap.to(vid2.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: -8,
-                  y: 0,
-                  z: 6,
-                });
-                break;
-
-              case 1:
-                gsap.to(vid2.current.position, {
-                  duration: 0.5,
-                  ease: "power2.inOut",
-                  x: 3,
-                  y: 0,
-                  z: 3,
-                });
-                break;
-              case 2:
-                gsap.to(vid2.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: 0,
-                  y: 0,
-                  z: -2,
-                });
-                gsap.to(vid1.current.rotation, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  y: -Math.PI * 0.1,
-                });
-                break;
-              default:
-                gsap.to(vid2.current.position, {
-                  duration: 1.5,
-                  ease: "power2.inOut",
-                  x: 0,
-                  y: 0,
-                  z: 2,
-                });
-                break;
-            }
-          }
         }
       });
 
@@ -384,29 +289,29 @@ const R3F = () => {
 
     if (toucan.current) {
       toucan.current.position.x = -2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
-      toucan.current.position.y =  + Math.cos(elapsedTime * 0.11) * Math.PI * 0.5;
+      toucan.current.position.y = + Math.cos(elapsedTime * 0.11) * Math.PI * 0.5;
       // toucan.current.rotation.z = -elapsedTime * 0.03;
     }
 
-  if (thirdweb.current) {
+    if (thirdweb.current) {
       thirdweb.current.position.x = 3 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
-      thirdweb.current.position.y = -2 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      thirdweb.current.position.y = -2 + Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
       // toucan.current.rotation.z = -elapsedTime * 0.03;
-  }
+    }
 
-      if (refi.current) {
+    if (refi.current) {
       refi.current.position.x = -3 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
-      refi.current.position.y = 1 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      refi.current.position.y = 1 + Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
       // toucan.current.rotation.z = -elapsedTime * 0.03;
     }
 
     if (polygon.current) {
       polygon.current.position.x = -2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
-      polygon.current.position.y = - 2 +  Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
+      polygon.current.position.y = - 2 + Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
       polygon.current.rotation.z = -elapsedTime * 0.1;
     }
 
-        if (lego.current) {
+    if (lego.current) {
       lego.current.position.x = 1 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.03;
       lego.current.position.y = 0.5 + Math.cos(elapsedTime * 0.11) * Math.PI * 0.4;
     }
@@ -429,9 +334,6 @@ const R3F = () => {
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionTwo" count={1}>
-          <group ref={vid1} position={[2, -4, -3]}>
-            <VideoScreen url={url} position={[-8, 0, 0]} />
-          </group>
           <group ref={molochPet1}>
             <MolochPet1 route="https://discord.gg/Fp6HNX7w9s" isExternal position={[-3, -4.5, -3]} rotation={[-Math.PI / 0.51, Math.PI / 4.5, 0]} />
           </group>
@@ -468,13 +370,13 @@ const R3F = () => {
             <ThirdWeb route="https://portal.thirdweb.com/guides/marketplace" isExternal />
           </group>
           <group ref={polygon} position={[-2, -2, -2]} rotation={[0, 0, 0]}>
-            <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" isExternal />
+            <Polygon route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" isExternal />
           </group>
-            <group ref={lego} position={[-2, 4, -8]} rotation={[0, 0, 0]}>
-            <LegoBlock  route="https://www.bricklink.com/r3/studio/download.page#xlink" isExternal />
+          <group ref={lego} position={[-2, 4, -8]} rotation={[0, 0, 0]}>
+            <LegoBlock route="https://www.bricklink.com/r3/studio/download.page#xlink" isExternal />
           </group>
-          <group ref={octoEasterEgg} position={[1, -2, 0]} rotation={[0, 0, 0]}>
-            <OctoEasterEgg  route="https://metagame.wtf" isExternal />
+          <group ref={octoEasterEgg} position={[1, -2, -1]} rotation={[0, 0, 0]}>
+            <OctoEasterEgg route="https://metagame.wtf" isExternal />
           </group>
         </R3FSceneSection>
 

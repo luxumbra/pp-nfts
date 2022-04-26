@@ -7,7 +7,7 @@ export const PPTheme = {
     transparent: 'transparent',
     black: '#000',
     white: '#fff',
-    greenGlassAlpha: "rgba(120,169,227,0.1)",
+    blueGlassAlpha: "rgba(120,169,227,0.3)",
     greenGlassAlpha: "rgba(38,52,20,0.7)",
     //     greenGlassAlpha: "rgba(120,169,227,0.3)",
     // greenGlassAlpha: "rgba(38,52,20,0.3)",
