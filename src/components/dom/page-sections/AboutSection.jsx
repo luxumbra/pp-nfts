@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Container,
   Link,
+  UnorderedList,
+  ListItem,
+  OrderedList,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import { useOnScreen } from "@/utils/hooks";
 
@@ -27,7 +31,7 @@ export const AboutSection = () => {
             maxW={{ base: '100%', md: "50%" }}
           >
             <Text as="h2">About ReVesture</Text>
-            <p>The MetaVerse is constantly expanding.  More and more Worlds are populated every day.  And in these worlds, we all want to strut our virtual stuff...</p>
+            <Text>The MetaVerse is constantly expanding.  More and more Worlds are populated every day.  And in these worlds, we all want to strut our virtual stuff...</Text>
             <Box>
               <Text as="h3" className="gradient text">
                 EcoSwag
@@ -58,11 +62,10 @@ export const AboutSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "rgba(38,52,20,0.3)",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",
-                borderLeft: "2px solid green.400"
               }}
             >
               <Text as="h2" color="blue.300">
@@ -79,9 +82,12 @@ export const AboutSection = () => {
 
               <Text className="coming-soon">(Coming soon, every NFT holder will receive an additional erc-1152 that evolves over-time based on the amount of your NCTs collected within all your ReVesture NFTs)</Text>
             </Box>
+
           </Container>
         </Box>
       </Box>
+
     </Box>
   );
 };
+

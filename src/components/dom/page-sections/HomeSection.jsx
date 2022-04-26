@@ -6,7 +6,10 @@ import {
   Text,
   HStack,
   useBreakpointValue,
-  Icon
+  Icon,
+  OrderedList,
+  UnorderedList,
+  ListItem
 } from "@chakra-ui/react";
 import { useOnScreen } from "@/utils/hooks";
 import {FaGlobeEurope, FaGlobeAmericas, FaGlobeAsia, FaGlobeAfrica} from 'react-icons/fa'
@@ -56,15 +59,14 @@ export const HomeSection = () => {
               },
             }}
           >
-            ReVesture<span role="img" aria-label="Octopus Mascot" className="gradient metagame text">🐙</span>
+            ReVesture<span role="img" aria-label="Tree mascot" className="gradient text noshadow">🌳</span>
           </Text>
           <span className="fest-dates">Earth Day 2022 {' '} <Icon as={FaGlobeAmericas} w={5} h={5} /> </span>
         </Box>
         <Box className="__content__body" maxW={{base: '66vw', lg: 'unset'}}>
           <Text as="p" fontWeight={300} mt={-4}>
             powered by{" "}
-            <Text as="span" fontWeight={900} className="gradient metagame text">
-              MetaGame&apos;s</Text> {' '}<Text as="span"  fontWeight={900} className="gradient text">Regen Guild</Text>
+            <Text as="span"  fontWeight={900} className="gradient text">Regen Guild</Text>
           </Text>
           <Text as="p" fontSize="1.5vmax" mt={{base: 3, md: 0}} fontWeight={500} lineHeight={1.2}>
             Clothe your jester avatar, offer a loving irl gesture, all in one <span className="gradient text"> carbon negative</span> transaction.
@@ -73,7 +75,7 @@ export const HomeSection = () => {
             <span className="gradient text">Every NFT</span> on ReVesture <span className="gradient text">offsets carbon</span> &amp; helps to fund <span className="gradient text">regenerative projects</span>.
           </Text>
           <HStack mt={5}>
-            <Link href="#marketplace"><Button colorScheme="green" bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)"  size={buttonSize}>Browse NFTs</Button></Link>
+            <Link href="#marketplace"><Button colorScheme="green" bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)" size={buttonSize}>Browse NFTs</Button></Link>
           </HStack>
         </Box>
       </Box>

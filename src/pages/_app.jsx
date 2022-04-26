@@ -15,6 +15,7 @@ import {
   textGradient,
 } from "@chakra-ui/react";
 import { PPTheme } from '@/theme/theme';
+import { GiHidden } from "react-icons/gi";
 
 const theme = extendTheme({
   ...PPTheme,
@@ -34,6 +35,7 @@ const theme = extendTheme({
         m: '0 auto',
         minH: "100vh",
         width: '100%',
+        overflowX: 'hidden',
         // overflowY: "auto",
         '.loading-canvas': {
           '.dom-loader': {
@@ -65,7 +67,7 @@ const theme = extendTheme({
           textDecoration: "none",
         },
         "&.chakra-link": {
-          color: "green.400",
+          color: "green.700",
           filter: 'none',
           _hover: {
             color: "green.600",
@@ -146,6 +148,8 @@ const theme = extendTheme({
         m: 0,
         py: 0,
         px: { base: 4, lg: '10%' },
+        overflowY: { base: 'auto', md: 'hidden' },
+        overflowX: 'hidden',
         zIndex: 2000,
       },
       ".__content__body": {
@@ -166,12 +170,11 @@ const theme = extendTheme({
       },
       // Gradients
       ".gradient": {
-        bgGradient: `linear(90deg, ${PPTheme.colors.green[500]} -29.22%, ${PPTheme.colors.green[600]} 107.53%)`,
+        bgGradient: `linear(90deg, ${PPTheme.colors.green[700]} -29.22%, ${PPTheme.colors.green[700]} 107.53%)`,
         '&.metagame': {
           bgGradient: `linear(90deg, ${PPTheme.colors.purple[300]} -29.22%, ${PPTheme.colors.purple[400]} 107.53%)`,
         },
         '&.text': {
-          position: 'relative',
           display: "inline-block",
           bgClip: "text",
           textShadow: 'unset',

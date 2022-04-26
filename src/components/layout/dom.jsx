@@ -8,6 +8,7 @@ import {SiteHeader} from "@/components/dom/Header";
 import { SiteFooter } from "@/components/dom/Footer";
 import { useFrame } from '@react-three/fiber'
 
+import { TermDefinition } from '@/components/dom/TermDefinition';
 // import { AlphaNotice } from '@/components/dom/AlphaNotice';
 // import { EasterEgg } from '@/components/dom/EasterEgg';
 
@@ -26,7 +27,7 @@ const Dom = ({ children }) => {
       ref={ref}
       // className="scrollable"
       sx={{
-        scrollSnapType: { base: "y proximity", md: "unset" },
+        scrollSnapType: { base: "unset", md: "unset" },
         d: 'block',
         position: "relative",
         width: '100%',
@@ -44,6 +45,7 @@ const Dom = ({ children }) => {
       <SiteHeader />
       {children}
       <SiteFooter />
+
       {/* <AlphaNotice /> */}
       {/* <EasterEgg /> */}
     </Box>
@@ -51,3 +53,5 @@ const Dom = ({ children }) => {
 }
 
 export default Dom
+
+

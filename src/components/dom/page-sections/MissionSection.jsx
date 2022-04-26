@@ -31,27 +31,30 @@ export const MissionSection = () => {
           >
             <Text as="h2">Mission</Text>
             <Text>
-              Our mission is pretty simple yet highly complex,<br/>with a dash of fun!
+              Our mission is pretty simple yet highly complex,<br />with a dash of fun!
             </Text>
             <Box>
               <Text as="h3" className="gradient text">
-                The simple part
+                Simple bits
               </Text>
               <Text>
-                Simply to help everyone reduce &amp; remove global carbon emissions.
+                Simply to help everyone reduce &amp; remove global carbon emissions &amp; support regenerative projects around the globe. 🌎
               </Text>
 
               <Text as="h3" className="gradient text">
-                The trickier bit
+                Trickier bits
               </Text>
-              <Text>This part is nicely packaging that ability into an artistic NFT, using innovative web3 and blockchain technologies.</Text>
-              <Text>The incredibly fun part is that you can interact with this NFT in the virtual MetaVerse.
-                Wear it, be it, walk inside of it.</Text>
+              <Text>Nicely packaging that ability into an artistic NFT, using innovative Web3 &amp; blockchain technologies. Digi-physical pairing of real world actions &amp; assets <br /> to new virtual realities.</Text>
+
+              <Text as="h3" className="gradient text">
+                Dash of fun...
+              </Text>
+              <Text>Interacting with this NFT in the virtual MetaVerse. Wear it. Be it. Walk inside of it.</Text>
             </Box>
 
           </Container>
           <Container maxW={{ base: '100%', md: "50%" }} h="100%" p={0} mt={{ base: 5, md: 0 }} align="right">
-          <Box
+            <Box
               maxW={{ base: '100%', md: 'xl' }}
               h="100%"
               p={{ base: 8, md: 8 }}
@@ -71,10 +74,10 @@ export const MissionSection = () => {
               <Text className="">Celebrating our collective accomplishments of consciously restoring our Planet.</Text>
               <Text as="h3" color="blue.200">
                 Some final words...
-            </Text>
+              </Text>
               <Text>ReVesture aims to remind us all...</Text>
-                <Text>Have fun, but stay grounded.</Text>
-                <Text>Explore new <span className="gradient metagame text">VR worlds</span>, <span className="gradient metagame text">dream beyond your dreams</span> ... but don&apos;t forget, we sort of over-did-it on the one we are all standing on.</Text>
+              <Text>Have fun, but stay grounded.</Text>
+              <Text>Explore new <span className="gradient metagame text">VR worlds</span>, <span className="gradient metagame text">dream beyond your dreams</span> ... but don&apos;t forget, we sort of over-did-it on the one we are all standing on.</Text>
             </Box>
           </Container>
 

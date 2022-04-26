@@ -69,6 +69,16 @@ const MolochPet1 = dynamic(() => import('@/components/canvas/musashi/MolochPet1'
   ssr: false,
 })
 
+// b0gie
+const Giveth = dynamic(() => import('@/components/canvas/b0gie/Giveth'), {
+  ssr: false,
+})
+const Toucan = dynamic(() => import('@/components/canvas/b0gie/Toucan'), {
+  ssr: false,
+})
+const Refi = dynamic(() => import('@/components/canvas/b0gie/Refi'), {
+  ssr: false,
+})
 
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
@@ -115,6 +125,9 @@ const R3F = () => {
   const jetsetter = useRef(null);
   const industrial = useRef(null);
   const octoEasterEgg = useRef(null);
+  const giveth = useRef(null);
+  const toucan = useRef(null);
+      const refi = useRef(null);
   const camera = useRef();
   const cameraGroup = useRef();
   const scrollY = useRef(0)
@@ -464,6 +477,24 @@ const R3F = () => {
       octoEasterEgg.current.position.y = -.5 - Math.cos(elapsedTime * 0.1) * Math.PI * 0.5;
       octoEasterEgg.current.rotation.z = -elapsedTime * 0.06;
     }
+
+    // if (giveth.current) {
+    //   giveth.current.position.x = 2 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
+    //   giveth.current.position.y = 1 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
+    //   giveth.current.rotation.z = -elapsedTime * 0.03;
+    // }
+
+    // if (toucan.current) {
+    //   toucan.current.position.x = 0 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
+    //   toucan.current.position.y = .5 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
+    //   toucan.current.rotation.z = -elapsedTime * 0.03;
+    // }
+
+    // if (refi.current) {
+    //   refi.current.position.x = 0 + Math.sin(elapsedTime * 0.6) * Math.PI * 0.06;
+    //   refi.current.position.y = .5 - Math.cos(elapsedTime * 0.11) * Math.PI * 0.53;
+    //   refi.current.rotation.z = -elapsedTime * 0.03;
+    // }
   });
 
   return (
@@ -509,8 +540,14 @@ const R3F = () => {
         </R3FSceneSection>
 
         <R3FSceneSection name="SectionFive" count={4}>
-          <group ref={octoEasterEgg}>
-            <OctoEasterEgg />
+          <group ref={giveth} position={[0,0,0]}>
+            <Giveth />
+          </group>
+          <group ref={toucan} position={[-8, 0, -2]}>
+            <Toucan />
+          </group>
+              <group ref={refi} position={[0, 1, 1]} rotation={[Math.PI * 0.5, 0 , 0]}>
+            <Refi />
           </group>
         </R3FSceneSection>
 
