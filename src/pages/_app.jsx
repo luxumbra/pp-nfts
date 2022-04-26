@@ -100,7 +100,7 @@ const theme = extendTheme({
         color: "blue.100",
         fontSize: "3vw",
         fontWeight: '900',
-        // filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
+        filter: "drop-shadow(0 0 1px rgba(0,0,0,0.9))",
         "& + p": {
           fontSize: { base: "2.8vmin", md: "1.3vmax" },
           lineHeight: { base: "1.2", md: "inherit" },
@@ -177,6 +177,19 @@ const theme = extendTheme({
           bgGradient: `linear(90deg, ${PPTheme.colors.purple[300]} -29.22%, ${PPTheme.colors.purple[400]} 107.53%)`,
         },
         '&.text': {
+          display: "inline-block",
+          bgClip: "text",
+          textShadow: 'unset',
+          zIndex: 20001,
+          filter: "drop-shadow(0 0 1px rgba(0,0,0,0.6))",
+          '&.noshadow': {
+            filter: "unset",
+          }
+        }
+      },
+            ".gradient-blue": {
+        bgGradient: `linear(90deg, ${PPTheme.colors.blue[500]} -29.22%, ${PPTheme.colors.blue[600]} 107.53%)`,
+               '&.text': {
           display: "inline-block",
           bgClip: "text",
           textShadow: 'unset',

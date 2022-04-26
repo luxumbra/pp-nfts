@@ -117,13 +117,13 @@ export const PartnersSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "rgba(38,52,20,0.3)",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",
               }}
             >
-              <Text as="h2" color="blue.300">
+              <Text as="h2" >
                 In the future
               </Text>
               <SimpleGrid columns={2} spacing={4}>
@@ -138,6 +138,7 @@ export const PartnersSection = () => {
                 <Box className="lego">
                   <Text as="h4">MetaFactory</Text>
                   <Text>MF have been at the fore of the digi-physical game for a relative age. One could say that they&apos;re the OGs of the space. Watch this space for IRL wearables to go with your Metaverse EcoSwag.</Text>
+                  <Link href="https://www.metafactory.ai/" isExternal><ExternalLinkIcon mr={1} />MetaFactory</Link>
                 </Box>
               </SimpleGrid>
             </Box>

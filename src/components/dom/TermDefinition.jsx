@@ -47,7 +47,7 @@ export const TermDefinition = () => {
       mt={0}
       p={8}
       sx={{
-        bg: "blueGlassAlpha",
+        bg: "greenGlassAlpha",
         backdropFilter: "blur(7px)",
         borderRadius: "25px 0 0 10px",
         boxShadow: "0 0 30px #00000070",

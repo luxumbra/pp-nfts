@@ -62,7 +62,7 @@ export const AboutSection = () => {
               textAlign="left"
               className=""
               sx={{
-                bg: "blueGlassAlpha",
+                bg: "greenGlassAlpha",
                 backdropFilter: "blur(7px)",
                 borderRadius: "5px 30px 10px 0",
                 boxShadow: "0 0 30px #00000070",

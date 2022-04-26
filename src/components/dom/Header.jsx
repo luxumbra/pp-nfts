@@ -211,7 +211,7 @@ export function SiteHeader() {
                 px={5}
                 py={2}
                 color="green.400"
-                bgGradient="linear(-90deg, green.500 -29.22%, green.900 107.53%)"
+                bgGradient="linear(-90deg, green.500 -29.22%, green.800 107.53%)"
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.6)"
                 fontWeight={700}
                 size="sm"

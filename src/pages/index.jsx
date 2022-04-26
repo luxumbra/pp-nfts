@@ -93,6 +93,7 @@ const LegoBlock = dynamic(() => import('@/components/canvas/b0gie/LegoBlock'), {
 import url from '@/static/assets/video/household_burnnft.clip.mp4'
 import url2 from '@/static/assets/video/household_nft.clip.mp4'
 import { lerp } from "three/src/math/MathUtils";
+import { EasterEgg } from "@/components/dom/EasterEgg";
 
 // dom components goes here
 const DOM = () => {
@@ -470,7 +471,10 @@ const R3F = () => {
             <Polygon  route="https://blog.polygon.technology/polygon-is-going-carbon-negative-in-2022-with-a-20-million-pledge/" isExternal />
           </group>
             <group ref={lego} position={[-2, 4, -8]} rotation={[0, 0, 0]}>
-            <LegoBlock  route="https://education.lego.com/en-gb/grants-and-funding" isExternal />
+            <LegoBlock  route="https://www.bricklink.com/r3/studio/download.page#xlink" isExternal />
+          </group>
+          <group ref={octoEasterEgg} position={[1, -2, 0]} rotation={[0, 0, 0]}>
+            <OctoEasterEgg  route="https://metagame.wtf" isExternal />
           </group>
         </R3FSceneSection>
 
