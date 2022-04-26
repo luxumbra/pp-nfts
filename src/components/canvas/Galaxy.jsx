@@ -1,9 +1,12 @@
+
+
 import * as THREE from 'three'
 import React, { Suspense, useRef, forwardRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 import { useControls, folder } from 'leva'
+import {GiPineTree, GiPollenDust, GiFallingLeaf} from 'react-icons/gi';
 
 import { CanvasLoader } from '@/components/canvas/Loader'
 
@@ -22,8 +25,8 @@ const Galaxy = ({ dof, parameters, nucleus, helper, effects, ...props }) => {
   /**
    * Textures
    */
-  const planeColorTexture = useLoader(TextureLoader, '/assets/textures/particles/seed_logo.png');
-  const planeAlphaTexture = useLoader(TextureLoader, '/assets/textures/particles/seed_logo.png');
+  const planeColorTexture = useLoader(TextureLoader, '/assets/textures/leaves-floating.png');
+  const planeAlphaTexture = useLoader(TextureLoader, '/assets/textures/leaves-floating.png');
   planeAlphaTexture.minFilter = THREE.NearestFilter;
   planeAlphaTexture.magFilter = THREE.NearestFilter;
   planeAlphaTexture.generateMipmaps = true;

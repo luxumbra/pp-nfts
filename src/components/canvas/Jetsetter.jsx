@@ -64,7 +64,6 @@ export default function JetsetterVox(props) {
         geometry={nodes.jetsetter.geometry}
         material={materials.palette}
         rotation={[Math.PI / 2, 0, 0]}
-        onClick={() => router.push(route)}
         onPointerOver={(e) => setHover(true)}
         onPointerOut={(e) => setHover(false)}
       />

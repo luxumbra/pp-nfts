@@ -55,15 +55,15 @@ export default function ILBVox(props) {
         rotation={[Math.PI * 0.5, 0, 0]}
         scale={[0.5,0.5,0.5]}
         onClick={() => router.push(route)}
-        onPointerOver={(e) => setHover(true)}
-        onPointerOut={(e) => setHover(false)}
+        // onPointerOver={(e) => setHover(true)}
+        // onPointerOut={(e) => setHover(false)}
       />
 
       <pointLight
         intensity={0.6}
         distance={3}
         decay={2}
-        color={'0xfff'}
+        color={'0xffffff'}
         castShadow
       />
     </group>

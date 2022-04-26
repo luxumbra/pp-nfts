@@ -12,12 +12,12 @@ import * as dat from 'lil-gui'
 // Scene
 const scene = new THREE.Scene()
 export const galaxyColors = {
-    inside: '#462080',
-    outside: '#FF61E6'
+    inside: '#3E6617',
+    outside: '#C4E661'
 }
 export const galaxy2Colors = {
-    inside: '#FF61E6',
-    outside: '#7C56FF'
+    inside: '#D5F6B8',
+    outside: '#3E6617'
 }
 export const galaxy3Colors = {
     inside: '#76EBF2',
@@ -84,8 +84,8 @@ export const galaxy3Params = {
     spin: 32,
     randomness: 13,
     randomnessPower: 20,
-    insideColor: galaxy3Colors.inside,
-    outsideColor: galaxy3Colors.outside,
+    insideColor: galaxy2Colors.inside,
+    outsideColor: galaxy2Colors.outside,
     type: 3,
     opacity: 1,
     focusDistance: 0.05,
@@ -105,8 +105,8 @@ export const galaxy4Params = {
     spin: 5,
     randomness: 1.5,
     randomnessPower: 1,
-    insideColor: galaxy4Colors.inside,
-    outsideColor: galaxy4Colors.outside,
+    insideColor: galaxyColors.inside,
+    outsideColor: galaxyColors.outside,
     type: 4,
     opacity: 0.5,
     focusDistance: 0.05,
@@ -126,8 +126,8 @@ export const galaxy5Params = {
     spin: 5,
     randomness: 2.5,
     randomnessPower: 10,
-    insideColor: galaxy5Colors.inside,
-    outsideColor: galaxy5Colors.outside,
+    insideColor: galaxyColors.inside,
+    outsideColor: galaxyColors.outside,
     type: 3,
     opacity: 0.5,
     focusDistance: 0.05,
