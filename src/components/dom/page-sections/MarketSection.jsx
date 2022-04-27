@@ -79,7 +79,7 @@ function Feature({ name, description, image, price, onBuy }) {
             / wk
           </Box> */}
 
-          <Button width='full' onClick={onBuy}>
+          <Button  onClick={onBuy}>
             {' '}
             Buy
           </Button>
@@ -108,12 +108,20 @@ export const MarketSection = () => {
     return { provider, sdk, marketplace }
   }
 
-  useEffect(async () => {
-    if (typeof window !== 'undefined') {
-      const { provider, marketplace } = await connect()
-      const _listings = await marketplace.getActiveListings()
-      setListings(_listings)
+  useEffect(() => {
+    const getMarketplace = async () => {
+      if (typeof window !== 'undefined') {
+
+        const { provider, marketplace } = await connect()
+        if (marketplace) {
+          console.log('mkt', marketplace);
+          const _listings = await marketplace.getActiveListings()
+          setListings(_listings)
+        }
+
+      }
     }
+    getMarketplace();
   }, [])
 
   const buyNFT = async (nft) => {
@@ -208,7 +216,15 @@ export const MarketSection = () => {
           </Text>
         </Box>
 
-        <Box className='__content__body'></Box>
+        <Box className='__content__body'>
+          {/* <iframe
+    src="https://gateway.ipfscdn.io/ipfs/Qmbmie8xBZs3YFmqSHwX9d36dUt1x8KoNH8KNTRzRYFcgb/marketplace.html?contract=0x4F0763A70D44558BBb0E8eB060199e5ec439cc15&amp;chainId=137&amp;listingId=0"
+    width="600px"
+    height="600px"
+    style={{maxWidth: "100%"}}
+    frameBorder="0"
+  ></iframe> */}
+        </Box>
         <Flex mt={100} p='xl'>
           {listings &&
             listings?.map((listing, index) => (
